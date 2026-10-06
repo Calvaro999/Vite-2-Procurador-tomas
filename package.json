@@ -1,0 +1,14 @@
+{
+  "name": "procurador-tomas-vite",
+  "version": "1.0.0",
+  "description": "Sitio web oficial actualizado para Procurador Gabriel Tomás en Palma de Mallorca con Vite y arquitectura de componentes",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}
