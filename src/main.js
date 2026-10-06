@@ -1,5 +1,6 @@
 import { Navbar } from './components/navbar.js';
 import { Section } from './components/section.js';
+import { IntroAnimation } from './components/introAnimation.js';
 
 // 1. SECCIÓN INICIO / HERO
 const seccionInicio = Section({
@@ -8,53 +9,57 @@ const seccionInicio = Section({
   contenido: `
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
-        <div>
+        <div class="reveal-item">
           <div class="badge-tag" style="margin-bottom: 1.5rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
             </svg>
             Colegiado ICPIB Nº 120 · Palma de Mallorca
           </div>
-          <h1 style="color: #ffffff; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif);">
+          
+          <h1 style="color: #ffffff; font-size: clamp(2rem, 3.6vw, 3.3rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif); font-weight: 700;">
             "El Procurador es el representante procesal del ciudadano".
           </h1>
-          <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
-            Agilizamos sus procedimientos judiciales en Palma, Manacor e Inca. Supervisión técnica rigurosa de cada fase, resolución de obstáculos procesales y comunicación constante e inmediata con su abogado.
+          
+          <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.85; margin-bottom: 2rem;">
+            Garantía técnica y rigor procedimental en los tribunales de las Islas Baleares. Supervisión rigurosa de plazos, impulso de actuaciones y comunicación directa e inmediata con letrados y clientes.
           </p>
-          <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
-            <a href="#contacto" class="btn-primary">
+
+          <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
+            <a href="#contacto" class="btn-primary" data-3d-btn>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
               </svg>
-              Solicitar Presupuesto
+              Solicitar Presupuesto Oficial
             </a>
-            <a href="#servicios" class="btn-secondary">
-              Explorar Servicios
+            <a href="#servicios" class="btn-secondary" data-3d-btn>
+              Servicios Procesales
             </a>
           </div>
 
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.15);">
+          <!-- Métricas Institucionales -->
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.12);">
             <div>
-              <div style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: #dfb15b;">+25</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Años de experiencia</div>
+              <div style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: #dfb15b;">+25</div>
+              <div style="font-size: 0.78rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Años de Ejercicio</div>
             </div>
             <div>
-              <div style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: #dfb15b;">3</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Partidos Judiciales</div>
+              <div style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: #dfb15b;">3</div>
+              <div style="font-size: 0.78rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Partidos Judiciales</div>
             </div>
             <div>
-              <div style="font-family: var(--font-serif); font-size: 1.8rem; font-weight: 700; color: #dfb15b;">100%</div>
-              <div style="font-size: 0.82rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em;">Control de Plazos</div>
+              <div style="font-family: var(--font-serif); font-size: 1.85rem; font-weight: 700; color: #dfb15b;">100%</div>
+              <div style="font-size: 0.78rem; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;">Rigor de Plazos</div>
             </div>
           </div>
         </div>
 
-        <div style="position: relative;">
-          <div style="position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); border: 2px solid rgba(198, 146, 52, 0.35);">
+        <div class="reveal-item reveal-delay-2" style="position: relative;">
+          <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75); border: 2px solid rgba(198, 146, 52, 0.35);">
             <img src="/images/hero_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/hero_procurador.jpg';}" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent 0%, rgba(11, 21, 40, 0.95) 100%); padding: 1.5rem; color: #ffffff;">
-              <span style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; display: block;">Gabriel Tomás Gili</span>
-              <span style="font-size: 0.85rem; color: #dfb15b;">Procurador Colegiado ICPIB nº 120 · Illes Balears</span>
+            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent 0%, rgba(6, 12, 24, 0.96) 100%); padding: 1.75rem; color: #ffffff;">
+              <span style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; display: block;">Gabriel Tomás Gili</span>
+              <span style="font-size: 0.82rem; color: #dfb15b; letter-spacing: 0.12em; text-transform: uppercase;">Procurador Colegiado ICPIB nº 120 · Illes Balears</span>
             </div>
           </div>
         </div>
@@ -69,77 +74,82 @@ const seccionQuienesSomos = Section({
   className: 'section-light',
   contenido: `
     <div class="container">
-      <div class="section-header">
-        <span class="badge-tag">Trayectoria & Compromiso</span>
+      <div class="section-header reveal-item">
+        <span class="badge-tag">Trayectoria & Solvencia</span>
         <h2>Quiénes Somos</h2>
-        <p>Representación judicial de máxima solvencia técnica, rigor en los plazos y trato cercano para letrados y particulares.</p>
+        <div class="legal-ornament"><span class="legal-ornament-icon">⚖</span></div>
+        <p>Representación judicial de máxima solvencia procesal, rigor temporal y atención personalizada para profesionales de la abogacía y representados.</p>
       </div>
 
       <div class="about-layout">
-        <div>
-          <h3 style="font-size: 1.8rem; margin-bottom: 1.25rem;">Procuradores Mallorca · Gabriel Tomás Gili</h3>
+        <div class="reveal-item">
+          <h3 style="font-size: 1.8rem; margin-bottom: 1.25rem; font-family: var(--font-serif); color: var(--primary-navy);">
+            Procuradores Mallorca · Gabriel Tomás Gili
+          </h3>
           <p style="margin-bottom: 1.25rem;">
-            Como <strong>Procurador Colegiado ICPIB nº 120</strong>, ejerzo la representación procesal ante los juzgados y tribunales de las Islas Baleares, actuando como el enlace directo y eficaz entre el órgano judicial, el abogado y el justiciable.
+            Como <strong>Procurador Colegiado ICPIB nº 120</strong>, ostento la representación procesal técnica ante los tribunales de la Comunidad Autónoma de las Islas Baleares, actuando con estricto apego deontológico y facilitando el enlace directo entre el juzgado y el letrado director del caso.
           </p>
           <p style="margin-bottom: 1.25rem;">
-            Nos responsabilizamos íntegramente de la gestión procesal: desde la recepción y firma de emplazamientos, citaciones y notificaciones hasta la asistencia presencial a diligencias y vistas en sede judicial.
+            Asumimos la gestión íntegra del expediente: control minucioso de providencias, autos y sentencias; recepción y diligenciado de emplazamientos y citaciones; y presencia directa en salas judiciales.
           </p>
 
-          <div style="margin: 2rem 0; padding: 1.5rem; background: #ffffff; border-radius: 12px; border-left: 4px solid var(--gold-accent); box-shadow: var(--shadow-sm);">
-            <h4 style="font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--primary-navy);">Garantía de Impulso Procesal</h4>
-            <p style="font-size: 0.95rem; margin: 0;">
-              Transmitimos inmediatamente al letrado cada resolución judicial recibida, anticipando incidencias y evitando dilaciones innecesarias que puedan retrasar la sentencia definitiva.
+          <div style="margin: 2rem 0; padding: 1.75rem; background: #ffffff; border-radius: 8px; border-left: 4px solid var(--gold-accent); border-top: 1px solid rgba(226, 232, 240, 0.9); border-right: 1px solid rgba(226, 232, 240, 0.9); border-bottom: 1px solid rgba(226, 232, 240, 0.9); box-shadow: var(--shadow-sm);">
+            <h4 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--primary-navy); letter-spacing: 0.05em; text-transform: uppercase;">
+              Compromiso de Diligencia Judicial
+            </h4>
+            <p style="font-size: 0.95rem; margin: 0; color: #475569;">
+              Traslado inmediato de resoluciones al letrado receptor, liquidación de depósitos procesales y anticipación táctica ante cualquier contingencia para evitar dilaciones indebidas.
             </p>
           </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-            <a href="https://www.cgpe.es/" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size: 0.88rem; padding: 0.7rem 1.3rem;">
-              Consejo General (CGPE)
+            <a href="https://www.cgpe.es/" target="_blank" rel="noopener noreferrer" class="btn-primary" data-3d-btn style="font-size: 0.84rem; padding: 0.8rem 1.5rem;">
+              Consejo General de Procuradores (CGPE)
             </a>
-            <a href="https://www.procuradoresdebaleares.es/" target="_blank" rel="noopener noreferrer" class="btn-secondary" style="font-size: 0.88rem; padding: 0.7rem 1.3rem; color: #0b1528; border-color: #cbd5e1; background: #ffffff;">
+            <a href="https://www.procuradoresdebaleares.es/" target="_blank" rel="noopener noreferrer" class="btn-secondary" data-3d-btn style="font-size: 0.84rem; padding: 0.8rem 1.5rem; color: #060c18; border-color: #cbd5e1; background: #ffffff;">
               Colegio Balear (ICPIB)
             </a>
           </div>
         </div>
 
-        <div class="about-highlight-box">
-          <h4 style="font-size: 1.3rem; margin-bottom: 1.2rem; color: var(--primary-navy); border-bottom: 1px solid rgba(198, 146, 52, 0.2); padding-bottom: 0.8rem;">
-            Información del Despacho
+        <div class="about-highlight-box reveal-item reveal-delay-2">
+          <h4 style="font-size: 1.25rem; margin-bottom: 1.25rem; color: var(--primary-navy); border-bottom: 1px solid rgba(198, 146, 52, 0.2); padding-bottom: 0.85rem; letter-spacing: 0.05em;">
+            Despacho y Jurisdicción
           </h4>
           <ul class="about-list">
             <li>
-              <span class="about-list-icon">📍</span>
+              <span class="about-list-icon">⚖️</span>
               <div>
-                <strong>Partidos Judiciales:</strong>
-                <div>Palma de Mallorca, Manacor, Inca (otros partidos de Baleares por encargo).</div>
+                <strong style="color: #060c18; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Partidos Judiciales:</strong>
+                <div style="color: #475569;">Palma de Mallorca (Sede Central), Manacor e Inca (otros partidos insulares bajo designación previa).</div>
               </div>
             </li>
             <li>
-              <span class="about-list-icon">⏱️</span>
+              <span class="about-list-icon">🏛️</span>
               <div>
-                <strong>Horario de Atención:</strong>
-                <div>Lunes a Viernes: 8:00 AM – 19:00 PM<br><span style="color: #94a3b8; font-size: 0.85rem;">Sábado y Domingo: Cerrado</span></div>
+                <strong style="color: #060c18; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Horario Profesional:</strong>
+                <div style="color: #475569;">Lunes a Viernes: 8:00 – 19:00 h<br><span style="color: #94a3b8; font-size: 0.84rem;">Sábados y Domingos: Cerrado</span></div>
               </div>
             </li>
             <li>
               <span class="about-list-icon">📞</span>
               <div>
-                <strong>Teléfono Directo:</strong>
-                <div><a href="tel:+34971770574" style="font-weight: 600;">+34 971 77 05 74</a></div>
+                <strong style="color: #060c18; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Atención Telefónica Directa:</strong>
+                <div><a href="tel:+34971770574" style="font-weight: 700; color: #060c18; font-size: 1.05rem;">+34 971 77 05 74</a></div>
               </div>
             </li>
             <li>
-              <span class="about-list-icon">💬</span>
+              <span class="about-list-icon">✉️</span>
               <div>
-                <strong>WhatsApp Inmediato:</strong>
-                <div><a href="https://api.whatsapp.com/send?phone=34609649224" target="_blank" rel="noopener noreferrer" style="font-weight: 600; color: #059669;">+34 609 64 92 24</a></div>
+                <strong style="color: #060c18; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; display: block; margin-bottom: 0.15rem;">Canal Inmediato:</strong>
+                <div><a href="https://api.whatsapp.com/send?phone=34609649224" target="_blank" rel="noopener noreferrer" style="font-weight: 600; color: #0f766e;">WhatsApp Profesional (+34 609 64 92 24)</a></div>
               </div>
             </li>
           </ul>
 
-          <div style="margin-top: 1.5rem; text-align: center;">
-            <a href="https://api.whatsapp.com/send?phone=34609649224" target="_blank" rel="noopener noreferrer" style="display: block; width: 100%; text-align: center; padding: 0.85rem; background: #059669; color: #ffffff; border-radius: 8px; font-weight: 600; text-decoration: none; transition: background 0.2s;">
-              Abrir Consulta por WhatsApp
+          <div style="margin-top: 1.75rem;">
+            <a href="tel:+34971770574" class="btn-primary" data-3d-btn style="width: 100%; justify-content: center;">
+              Llamar al Despacho
             </a>
           </div>
         </div>
@@ -154,64 +164,67 @@ const seccionServicios = Section({
   className: 'section-alt',
   contenido: `
     <div class="container">
-      <div class="section-header">
+      <div class="section-header reveal-item">
         <span class="badge-tag">Especialidades Profesionales</span>
-        <h2>Nuestros Servicios Destacados</h2>
-        <p>Cobertura procesal integral diseñada para dotar a los despachos de abogados de la máxima tranquilidad y efectividad.</p>
+        <h2>Servicios Procesales</h2>
+        <div class="legal-ornament"><span class="legal-ornament-icon">⚖</span></div>
+        <p>Cobertura integral ante todos los órdenes jurisdiccionales para letrados y representados con rigor arancelario.</p>
       </div>
 
       <div class="services-grid">
-        <div class="service-card">
+        <!-- Servicio 1 -->
+        <div class="service-card reveal-item reveal-delay-1">
           <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
               <polyline points="14 2 14 8 20 8"/>
               <line x1="16" y1="13" x2="8" y2="13"/>
               <line x1="16" y1="17" x2="8" y2="17"/>
-              <polyline points="10 9 9 9 8 9"/>
             </svg>
           </div>
           <h3>Tramitación de Despachos</h3>
-          <p>Gestión completa, diligenciado y presentación de mandamientos, testimonios, oficios y exhortos en todos los juzgados de Palma de Mallorca, Manacor e Inca.</p>
-          <span class="service-badge">Área Procesal</span>
+          <p>Diligenciado minucioso, presentación y seguimiento de mandamientos, testimonios, oficios y exhortos en todos los juzgados de Palma de Mallorca, Manacor e Inca.</p>
+          <span class="service-badge">Área Procesal Civil y Penal</span>
         </div>
 
-        <div class="service-card">
+        <!-- Servicio 2 -->
+        <div class="service-card reveal-item reveal-delay-2">
           <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M22 2L11 13"/>
               <polygon points="22 2 15 22 11 13 2 9 22 2"/>
             </svg>
           </div>
           <h3>Actos de Comunicación</h3>
-          <p>Realización directa al demandado de notificaciones, citaciones, requerimientos y emplazamientos con total validez legal, acortando notablemente la duración del procedimiento.</p>
-          <span class="service-badge">Reducción de Tiempos</span>
+          <p>Realización directa de notificaciones, citaciones, requerimientos y emplazamientos con total fe pública procesal, acortando sustancialmente los plazos de trámite judicial.</p>
+          <span class="service-badge">Reducción de Dilaciones</span>
         </div>
 
-        <div class="service-card">
+        <!-- Servicio 3 -->
+        <div class="service-card reveal-item reveal-delay-3">
           <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <circle cx="12" cy="12" r="10"/>
               <polyline points="12 6 12 12 16 14"/>
             </svg>
           </div>
           <h3>Servicio Integral y Control</h3>
-          <p>Sistema de control diario y riguroso de vencimientos, plazos procesales y señalamientos. Impulso activo constante para evitar paralizaciones judiciales.</p>
-          <span class="service-badge">Supervisión Diaria</span>
+          <p>Monitorización diaria y protocolizada de vencimientos procesales, términos perentorios y señalamientos de sala. Impulso proactivo permanente de las causas.</p>
+          <span class="service-badge">Supervisión Técnica Diaria</span>
         </div>
 
-        <div class="service-card">
+        <!-- Servicio 4 -->
+        <div class="service-card reveal-item reveal-delay-4">
           <div class="service-icon">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
               <circle cx="9" cy="7" r="4"/>
               <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
             </svg>
           </div>
           <h3>Asistencia en Sede Judicial</h3>
-          <p>Acompañamiento personalizado al cliente en cualquier comparecencia judicial, consignación de depósitos, liquidación de tasas y sustitución letrada en diligencias preliminares.</p>
-          <span class="service-badge">Presencia en Sala</span>
+          <p>Representación y acompañamiento presencial en comparecencias, lanzamientos, embargos, depósitos judiciales, liquidación de tasas y sustituciones de letrado.</p>
+          <span class="service-badge">Presencia Presencial en Sala</span>
         </div>
       </div>
     </div>
@@ -224,65 +237,66 @@ const seccionPreguntas = Section({
   className: 'section-light',
   contenido: `
     <div class="container">
-      <div class="section-header">
-        <span class="badge-tag">Respuestas Claras</span>
+      <div class="section-header reveal-item">
+        <span class="badge-tag">Criterios & Respuestas</span>
         <h2>Preguntas Frecuentes</h2>
-        <p>Resolvemos las principales dudas sobre la labor del procurador y la gestión procesal en los tribunales.</p>
+        <div class="legal-ornament"><span class="legal-ornament-icon">⚖</span></div>
+        <p>Aclaraciones normativas sobre la intervención procesal y la gestión ante los órganos judiciales.</p>
       </div>
 
-      <div class="faq-container">
+      <div class="faq-container reveal-item">
         <div class="faq-item active">
           <button class="faq-question" type="button">
-            <span>¿Qué es exactamente el Servicio Integral del despacho?</span>
+            <span>¿En qué consiste el Servicio Integral del despacho?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
             <p>
-              Consiste en la monitorización exhaustiva y diaria de todos los trámites del procedimiento judicial: control milimétrico de plazos y señalamientos, impulso procesal para evitar demoras burocráticas, consignación de depósitos judiciales, liquidación de tasas y acompañamiento presencial continuo al cliente y letrado en cada diligencia o comparecencia judicial.
+              Supone la tutela procesal continua y rigurosa del expediente: control diario de plazos preclusivos, examen de resoluciones dictadas por el órgano judicial, consignación de fianzas o depósitos, gestión de tasas judiciales y la asistencia física a diligencias y actos que requieran representación en sede jurisdiccional.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>¿Cómo agiliza los trámites la realización directa de Actos de Comunicación?</span>
+            <span>¿Qué validez y ventajas ofrece la realización directa de Actos de Comunicación?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
             <p>
-              A elección del cliente, realizamos las notificaciones y emplazamientos directamente al demandado con plenos efectos jurídicos, sin tener que esperar las colas de semanas o meses del servicio común de notificaciones y embargos del juzgado. Esto acorta sustancialmente el tiempo total de resolución del pleito.
+              Conforme a la Ley de Enjuiciamiento Civil, los procuradores ostentan capacidad de certificación para realizar notificaciones y emplazamientos con plena eficacia jurídica. Al encomendarlos directamente al despacho, se evitan las dilatadas demoras de los servicios comunes del juzgado, reduciendo en meses la tramitación del pleito.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>¿En qué partidos judiciales ejerce Gabriel Tomás Gili?</span>
+            <span>¿Qué partidos judiciales quedan cubiertos habitualmente?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
             <p>
-              Actuamos de forma habitual en los partidos judiciales de Palma de Mallorca, Manacor e Inca. También asumimos actuaciones en el resto de partidos judiciales de las Islas Baleares (Menorca, Ibiza, Formentera) por encargo previo.
+              Actuamos de forma regular en los partidos judiciales de Palma de Mallorca, Manacor e Inca. Para actuaciones en el resto del archipiélago balear (Menorca e Ibiza), se coordina la intervención bajo encargo específico.
             </p>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-question" type="button">
-            <span>¿Cómo puedo solicitar un presupuesto previo o designar procurador?</span>
+            <span>¿Cómo se determinan los aranceles y la solicitud de presupuesto?</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
           </button>
           <div class="faq-answer">
             <p>
-              Puede remitirnos los datos del procedimiento a través de nuestro formulario web inferior, por correo electrónico o llamando directamente al 971 77 05 74. Facilitamos presupuesto previo detallado con arreglo a los aranceles oficiales vigentes y asesoramiento sobre costas procesales.
+              La retribución del procurador se rige estrictamente por el Arancel Oficial de Derechos de los Procuradores de los Tribunales. Si precisa un desglose previo, remítanos los datos del litigio mediante el formulario o vía telefónica para emitir la propuesta arancelaria correspondiente.
             </p>
           </div>
         </div>
@@ -297,18 +311,20 @@ const seccionContacto = Section({
   className: 'section-alt',
   contenido: `
     <div class="container">
-      <div class="section-header">
-        <span class="badge-tag">Atención Personalizada</span>
-        <h2>Contacto y Solicitud de Presupuesto</h2>
-        <p>Comuníquese directamente con el despacho para consultas sobre trámites, sustituciones o asignación de procurador.</p>
+      <div class="section-header reveal-item">
+        <span class="badge-tag">Atención Profesional</span>
+        <h2>Contacto y Solicitud de Intervención</h2>
+        <div class="legal-ornament"><span class="legal-ornament-icon">⚖</span></div>
+        <p>Establezca comunicación directa con el despacho para consultas de designación, traslados o sustituciones procesales.</p>
       </div>
 
       <div class="contact-layout">
-        <div class="contact-info-card">
+        <!-- Tarjeta Institucional -->
+        <div class="contact-info-card reveal-item">
           <div>
-            <span class="badge-tag" style="background: rgba(198, 146, 52, 0.2); border-color: rgba(198, 146, 52, 0.5); color: #fce7b2;">Despacho Profesional</span>
-            <h3 style="margin-top: 1rem;">Gabriel Tomás Gili</h3>
-            <p style="color: #94a3b8; font-size: 0.95rem;">Procurador Colegiado ICPIB nº 120</p>
+            <span class="badge-tag" style="background: rgba(198, 146, 52, 0.15); border-color: rgba(198, 146, 52, 0.4); color: #dfb15b;">Sede Profesional</span>
+            <h3 style="font-family: var(--font-serif); font-size: 1.6rem; margin-top: 1rem;">Gabriel Tomás Gili</h3>
+            <p style="color: #94a3b8; font-size: 0.88rem; text-transform: uppercase; letter-spacing: 0.08em;">Procurador Colegiado ICPIB nº 120</p>
           </div>
 
           <div class="contact-info-item">
@@ -318,19 +334,19 @@ const seccionContacto = Section({
               </svg>
             </div>
             <div class="contact-info-text">
-              <strong>Llamada telefónica</strong>
+              <strong>Teléfono Despacho</strong>
               <a href="tel:+34971770574">+34 971 77 05 74</a>
             </div>
           </div>
 
           <div class="contact-info-item">
-            <div class="contact-info-icon" style="color: #4ade80;">
+            <div class="contact-info-icon" style="color: #38bdf8;">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
               </svg>
             </div>
             <div class="contact-info-text">
-              <strong>WhatsApp Móvil</strong>
+              <strong>Canal Mensajería</strong>
               <a href="https://api.whatsapp.com/send?phone=34609649224" target="_blank" rel="noopener noreferrer">+34 609 64 92 24</a>
             </div>
           </div>
@@ -343,7 +359,7 @@ const seccionContacto = Section({
               </svg>
             </div>
             <div class="contact-info-text">
-              <strong>Correo Electrónico</strong>
+              <strong>Correo Institucional</strong>
               <span>matias@ibserveis.com</span>
             </div>
           </div>
@@ -357,66 +373,71 @@ const seccionContacto = Section({
             </div>
             <div class="contact-info-text">
               <strong>Horario Despacho</strong>
-              <span>Lunes a Viernes: 8:00 - 19:00 h</span>
+              <span>Lunes a Viernes: 8:00 – 19:00 h</span>
             </div>
           </div>
 
-          <div style="border-top: 1px solid rgba(255, 255, 255, 0.15); padding-top: 1.25rem;">
-            <p style="font-size: 0.85rem; color: #94a3b8; margin: 0;">
-              Sede operativa en Palma de Mallorca con actuación regular en los juzgados de Vía Alemania, Manacor e Inca.
+          <div style="border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 1.25rem;">
+            <p style="font-size: 0.85rem; color: #94a3b8; margin: 0; line-height: 1.6;">
+              Intervención habitual en los Juzgados de Vía Alemania, Juzgados de Manacor, Juzgados de Inca y Audiencia Provincial de Baleares.
             </p>
           </div>
         </div>
 
-        <div class="contact-form-container">
-          <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-navy);">Enviar Consulta o Encargo</h3>
-          <p style="font-size: 0.95rem; margin-bottom: 1.75rem;">Complete este formulario y nos pondremos en contacto con usted en un plazo máximo de 24 horas laborables.</p>
+        <!-- Formulario Oficial -->
+        <div class="contact-form-container reveal-item reveal-delay-2">
+          <h3 style="font-size: 1.45rem; margin-bottom: 0.6rem; color: var(--primary-navy); font-family: var(--font-serif);">
+            Formulario de Consulta Judicial
+          </h3>
+          <p style="font-size: 0.95rem; margin-bottom: 1.75rem; color: #64748b;">
+            Cumplimente los campos preceptivos. Se atenderá su comunicación en un plazo máximo de 24 horas hábiles.
+          </p>
 
           <form id="form-consulta">
             <div class="form-row">
               <div class="form-group">
-                <label for="nombre">Nombre completo *</label>
-                <input type="text" id="nombre" class="form-control" placeholder="Ej. Carlos Martínez" required />
+                <label for="nombre">Nombre o Razón Social *</label>
+                <input type="text" id="nombre" class="form-control" placeholder="Ej. Letrado/a o Particular" required />
               </div>
               <div class="form-group">
-                <label for="telefono">Teléfono de contacto *</label>
-                <input type="tel" id="telefono" class="form-control" placeholder="Ej. 600 000 000" required />
+                <label for="telefono">Teléfono de Enlace *</label>
+                <input type="tel" id="telefono" class="form-control" placeholder="Ej. 971 000 000" required />
               </div>
             </div>
 
             <div class="form-row">
               <div class="form-group">
-                <label for="email">Correo electrónico *</label>
-                <input type="email" id="email" class="form-control" placeholder="correo@ejemplo.com" required />
+                <label for="email">Correo Electrónico *</label>
+                <input type="email" id="email" class="form-control" placeholder="correo@despacho.com" required />
               </div>
               <div class="form-group">
-                <label for="partido">Partido Judicial</label>
+                <label for="partido">Partido Judicial de Actuación</label>
                 <select id="partido" class="form-control">
-                  <option value="palma">Palma de Mallorca</option>
+                  <option value="palma">Palma de Mallorca (Sede Principal)</option>
                   <option value="manacor">Manacor</option>
                   <option value="inca">Inca</option>
-                  <option value="otros">Otros (Baleares)</option>
+                  <option value="otros">Otros Órganos Judiciales (Baleares)</option>
                 </select>
               </div>
             </div>
 
             <div class="form-group">
-              <label for="mensaje">Detalles de la consulta o procedimiento *</label>
-              <textarea id="mensaje" class="form-control" rows="4" placeholder="Indique tipo de procedimiento, juzgado o información requerida..." required></textarea>
+              <label for="mensaje">Asunto / Objeto de la Actuación *</label>
+              <textarea id="mensaje" class="form-control" rows="4" placeholder="Indique número de autos, tipo de procedimiento, juzgado y trámite requerido..." required></textarea>
             </div>
 
-            <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.5rem;">
+            <div style="margin-bottom: 1.5rem; display: flex; align-items: flex-start; gap: 0.6rem;">
               <input type="checkbox" id="rgpd" required style="margin-top: 4px; accent-color: var(--gold-accent);" />
-              <label for="rgpd" style="font-size: 0.84rem; color: #64748b; font-weight: normal;">
-                He leído y acepto la política de privacidad y el tratamiento confidencial de mis datos con fines de contacto judicial.
+              <label for="rgpd" style="font-size: 0.82rem; color: #64748b; font-weight: normal; line-height: 1.5;">
+                He leído y acepto el tratamiento confidencial de los datos remitidos a efectos estrictos de contacto profesional judicial.
               </label>
             </div>
 
-            <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; font-size: 1rem;">
-              Enviar Consulta al Despacho
+            <button type="submit" class="btn-primary" data-3d-btn style="width: 100%; justify-content: center; font-size: 0.95rem;">
+              Remitir Petición al Despacho
             </button>
 
-            <div id="form-feedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 8px; font-size: 0.95rem; text-align: center;"></div>
+            <div id="form-feedback" style="display: none; margin-top: 1rem; padding: 1rem; border-radius: 6px; font-size: 0.95rem; text-align: center;"></div>
           </form>
         </div>
       </div>
@@ -427,67 +448,206 @@ const seccionContacto = Section({
 // 6. COMPONENTE FOOTER
 const footer = document.createElement('footer');
 footer.style.cssText = `
-  background: #070d18;
+  background: #040810;
   color: #94a3b8;
-  padding: 3.5rem 1.5rem 2rem 1.5rem;
+  padding: 4rem 1.5rem 2.5rem 1.5rem;
   border-top: 1px solid rgba(198, 146, 52, 0.25);
   font-size: 0.9rem;
 `;
 footer.innerHTML = `
   <div class="container">
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem;">
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 3rem; margin-bottom: 3rem;">
       <div>
-        <div style="font-family: var(--font-serif); color: #ffffff; font-size: 1.25rem; font-weight: 700; margin-bottom: 0.75rem;">
+        <div style="font-family: var(--font-serif); color: #ffffff; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: 0.05em;">
           Gabriel Tomás Gili
         </div>
-        <p style="color: #64748b; font-size: 0.88rem; line-height: 1.6;">
-          Procurador de los Tribunales Colegiado nº 120 del Ilustre Colegio de Procuradores de las Islas Baleares (ICPIB). Representación procesal y garantía jurídica en Mallorca.
+        <p style="color: #64748b; font-size: 0.88rem; line-height: 1.7;">
+          Procurador de los Tribunales Colegiado nº 120 en el Ilustre Colegio de Procuradores de las Islas Baleares (ICPIB). Solvencia técnica, representación y garantía procesal en Mallorca.
         </p>
       </div>
 
       <div>
-        <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 1rem; font-family: var(--font-serif);">Enlaces Oficiales</h4>
-        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+        <h4 style="color: #ffffff; font-size: 0.95rem; margin-bottom: 1rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 0.1em;">Corporaciones Oficiales</h4>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.65rem;">
           <li><a href="https://www.cgpe.es/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1;">Consejo General de Procuradores de España</a></li>
           <li><a href="https://www.procuradoresdebaleares.es/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1;">Colegio de Procuradores de Baleares</a></li>
-          <li><a href="https://sedejudicial.justicia.es/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1;">Sede Judicial Electrónica</a></li>
+          <li><a href="https://sedejudicial.justicia.es/" target="_blank" rel="noopener noreferrer" style="color: #cbd5e1;">Punto Neutro Judicial / Sede Judicial</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 style="color: #ffffff; font-size: 1rem; margin-bottom: 1rem; font-family: var(--font-serif);">Navegación</h4>
-        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.6rem;">
+        <h4 style="color: #ffffff; font-size: 0.95rem; margin-bottom: 1rem; font-family: var(--font-serif); text-transform: uppercase; letter-spacing: 0.1em;">Estructura Web</h4>
+        <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.65rem;">
           <li><a href="#inicio" style="color: #cbd5e1;">Inicio</a></li>
           <li><a href="#quienessomos" style="color: #cbd5e1;">Quiénes Somos</a></li>
-          <li><a href="#servicios" style="color: #cbd5e1;">Servicios Destacados</a></li>
+          <li><a href="#servicios" style="color: #cbd5e1;">Servicios Procesales</a></li>
           <li><a href="#preguntas" style="color: #cbd5e1;">Preguntas Frecuentes</a></li>
-          <li><a href="#contacto" style="color: #cbd5e1;">Contacto</a></li>
+          <li><a href="#contacto" style="color: #cbd5e1;">Contacto y Presupuesto</a></li>
         </ul>
       </div>
     </div>
 
-    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+    <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
       <p style="margin: 0; font-size: 0.82rem; color: #64748b;">
-        © ${new Date().getFullYear()} Gabriel Tomás Gili · Procurador de los Tribunales. Todos los derechos reservados.
+        © ${new Date().getFullYear()} Gabriel Tomás Gili · Procurador de los Tribunales. Deontología y Rigor Procesal.
       </p>
       <div style="display: flex; gap: 1.5rem; font-size: 0.82rem;">
         <span style="color: #64748b;">Aviso Legal</span>
-        <span style="color: #64748b;">Política de Privacidad</span>
-        <span style="color: #64748b;">RGPD Compliant</span>
+        <span style="color: #64748b;">Tratamiento Confidencial de Datos (RGPD)</span>
       </div>
     </div>
   </div>
 `;
 
-// Función para montar los componentes en orden
+// Inicializador de animaciones al hacer scroll (Scroll Reveal)
+function setupScrollObserver() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal-item').forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
+}
+
+// Inicializador del efecto 3D interactivo en los botones
+function setup3DButtons() {
+  const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, [data-3d-btn], .call-btn');
+
+  buttons.forEach(btn => {
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      // Cálculo de rotación 3D proporcional (máximo ±10 grados)
+      const rotateX = ((y - centerY) / centerY) * -9;
+      const rotateY = ((x - centerX) / centerX) * 9;
+
+      btn.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px) scale(1.02)`;
+    });
+
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = '';
+    });
+  });
+}
+
+// Inicializador del seguimiento minimalista del ratón (Ambient Glow & Cursor Follower)
+function setupMouseInteractions() {
+  // Evitar en pantallas táctiles
+  if (window.matchMedia('(pointer: coarse)').matches) return;
+
+  // 1. Crear capa de resplandor ambiental
+  let ambientGlow = document.getElementById('ambient-mouse-glow');
+  if (!ambientGlow) {
+    ambientGlow = document.createElement('div');
+    ambientGlow.id = 'ambient-mouse-glow';
+    document.body.prepend(ambientGlow);
+  }
+
+  // 2. Crear elementos del cursor minimalista
+  let cursorDot = document.querySelector('.custom-cursor-dot');
+  let cursorRing = document.querySelector('.custom-cursor-ring');
+
+  if (!cursorDot) {
+    cursorDot = document.createElement('div');
+    cursorDot.className = 'custom-cursor-dot';
+    document.body.appendChild(cursorDot);
+  }
+
+  if (!cursorRing) {
+    cursorRing = document.createElement('div');
+    cursorRing.className = 'custom-cursor-ring';
+    document.body.appendChild(cursorRing);
+  }
+
+  let mouseX = -100;
+  let mouseY = -100;
+  let ringX = -100;
+  let ringY = -100;
+
+  window.addEventListener('pointermove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+
+    // Actualizar coordenadas para el gradiente ambiental en tiempo real
+    document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
+    document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
+
+    cursorDot.style.left = `${mouseX}px`;
+    cursorDot.style.top = `${mouseY}px`;
+  });
+
+  // Interpolación física fluida (Lerp) para el aro seguidor (efecto sedoso y minimalista)
+  function renderCursorRing() {
+    ringX += (mouseX - ringX) * 0.16;
+    ringY += (mouseY - ringY) * 0.16;
+
+    cursorRing.style.left = `${ringX}px`;
+    cursorRing.style.top = `${ringY}px`;
+
+    requestAnimationFrame(renderCursorRing);
+  }
+  requestAnimationFrame(renderCursorRing);
+
+  // Detección de elementos interactivos para expandir el aro con efecto magnético
+  const interactiveSelector = 'a, button, .service-card, input, textarea, select, .faq-question, .badge-tag';
+  document.addEventListener('mouseover', (e) => {
+    if (e.target.closest(interactiveSelector)) {
+      document.body.classList.add('cursor-hover');
+    }
+  });
+
+  document.addEventListener('mouseout', (e) => {
+    if (e.target.closest(interactiveSelector)) {
+      document.body.classList.remove('cursor-hover');
+    }
+  });
+
+  // Ocultar si el cursor sale de la ventana
+  document.addEventListener('mouseleave', () => {
+    cursorDot.style.opacity = '0';
+    cursorRing.style.opacity = '0';
+  });
+
+  document.addEventListener('mouseenter', () => {
+    cursorDot.style.opacity = '1';
+    cursorRing.style.opacity = '1';
+  });
+}
+
+// Función principal de montaje
 function renderApp() {
   const app = document.querySelector('#app') || document.body;
   if (!app) return;
 
-  // Limpiar contenedor previo para garantizar idempotencia
   app.innerHTML = '';
 
-  // app.append(...) para añadir la navbar y todas las secciones en orden según el enunciado
+  // 1. Añadir la animación solemne de entrada institucional
+  const intro = IntroAnimation({
+    onComplete: () => {
+      setupScrollObserver();
+      setup3DButtons();
+      setupMouseInteractions();
+    }
+  });
+  document.body.prepend(intro);
+
+  // 2. app.append(...) para añadir la navbar y todas las secciones en orden según el enunciado
   app.append(
     Navbar(),
     seccionInicio,
@@ -498,7 +658,14 @@ function renderApp() {
     footer
   );
 
-  // Interactividad del formulario de consulta
+  // Inicializar observadores y efectos interactivos
+  setTimeout(() => {
+    setupScrollObserver();
+    setup3DButtons();
+    setupMouseInteractions();
+  }, 100);
+
+  // Interactividad del formulario de consulta judicial
   const contactForm = document.querySelector('#form-consulta');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
@@ -507,21 +674,21 @@ function renderApp() {
       const submitBtn = contactForm.querySelector('button[type="submit"]');
 
       submitBtn.disabled = true;
-      submitBtn.textContent = 'Enviando consulta...';
+      submitBtn.textContent = 'Procesando comunicación judicial...';
 
       setTimeout(() => {
         submitBtn.disabled = false;
-        submitBtn.textContent = 'Enviar Consulta al Despacho';
+        submitBtn.textContent = 'Remitir Petición al Despacho';
         contactForm.reset();
 
         if (feedback) {
           feedback.style.display = 'block';
-          feedback.style.background = 'rgba(5, 150, 105, 0.15)';
-          feedback.style.color = '#059669';
-          feedback.style.border = '1px solid #059669';
+          feedback.style.background = 'rgba(15, 118, 110, 0.12)';
+          feedback.style.color = '#0f766e';
+          feedback.style.border = '1px solid #0f766e';
           feedback.innerHTML = `
-            <strong>✓ Mensaje recibido correctamente.</strong><br>
-            El procurador Gabriel Tomás revisará su consulta y le responderá a la mayor brevedad.
+            <strong>✓ Comunicación recibida en el despacho.</strong><br>
+            El Procurador Gabriel Tomás examinará el expediente y se pondrá en contacto en un plazo máximo de 24 horas hábiles.
           `;
         }
       }, 700);
@@ -529,7 +696,7 @@ function renderApp() {
   }
 }
 
-// Ejecución segura una vez que el DOM esté disponible
+// Ejecución segura tras disponibilidad del DOM
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', renderApp);
 } else {

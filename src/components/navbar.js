@@ -158,12 +158,15 @@ export function Navbar() {
     }
 
     .nav-links li a.nav-cta {
-      background: rgba(198, 146, 52, 0.15);
-      border: 1px solid rgba(198, 146, 52, 0.4);
-      color: #fce7b2;
-      padding: 0.45rem 1rem;
+      background: linear-gradient(180deg, #dfb15b 0%, #c69234 40%, #a67620 100%);
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      color: #ffffff;
+      padding: 0.5rem 1.15rem;
       border-radius: 6px;
-      transition: all 0.25s ease;
+      font-weight: 700;
+      box-shadow: 0 3px 0 #785210, 0 6px 14px rgba(198, 146, 52, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+      transform-style: preserve-3d;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .nav-links li a.nav-cta::after {
@@ -171,10 +174,15 @@ export function Navbar() {
     }
 
     .nav-links li a.nav-cta:hover {
-      background: #c69234;
+      background: linear-gradient(180deg, #ecd189 0%, #d4a23f 40%, #b88528 100%);
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 5px 0 #785210, 0 10px 20px rgba(198, 146, 52, 0.45), inset 0 1.5px 2px rgba(255, 255, 255, 0.8);
       color: #ffffff;
-      border-color: #c69234;
-      transform: translateY(-1px);
+    }
+
+    .nav-links li a.nav-cta:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 #785210, 0 2px 6px rgba(198, 146, 52, 0.3);
     }
 
     .nav-actions {
@@ -186,22 +194,32 @@ export function Navbar() {
     .call-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      background: #132238;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      gap: 0.5rem;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
+      border: 1px solid rgba(223, 177, 91, 0.4);
       color: #ffffff;
-      padding: 0.45rem 0.9rem;
-      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
       font-size: 0.84rem;
       font-weight: 600;
       text-decoration: none;
-      transition: all 0.2s ease;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      box-shadow: 0 3px 0 rgba(6, 12, 24, 0.8), 0 6px 14px rgba(0, 0, 0, 0.25), inset 0 1px 1px rgba(255, 255, 255, 0.35);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     .call-btn:hover {
-      background: #1e3352;
+      background: linear-gradient(180deg, rgba(198, 146, 52, 0.22) 0%, rgba(198, 146, 52, 0.08) 100%);
       border-color: #dfb15b;
       color: #dfb15b;
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 5px 0 rgba(6, 12, 24, 0.9), 0 10px 20px rgba(0, 0, 0, 0.35), inset 0 1px 2px rgba(255, 255, 255, 0.5);
+    }
+
+    .call-btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 1px 0 rgba(6, 12, 24, 0.9), 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .botonBurguer {
