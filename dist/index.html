@@ -15,11 +15,46 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Estilos Globales -->
+
   <title>Procurador Gabriel Tomás Gili | Palma de Mallorca · Col. 120 ICPIB</title>
-  <script type="module" crossorigin src="/assets/index-5aeRAz53.js"></script>
+  <script type="module" crossorigin src="/assets/index-CCTGkLoV.js"></script>
   <link rel="stylesheet" crossorigin href="/assets/index-BF1jhiDC.css">
 </head>
 <body>
   <div id="app"></div>
+
+  <!-- Script principal de la aplicación -->
+
+  <!-- Script de diagnóstico si se abre con doble clic (file://) directamente -->
+  <script>
+    if (window.location.protocol === 'file:') {
+      window.addEventListener('load', () => {
+        const app = document.querySelector('#app');
+        if (!app || !app.children.length) {
+          const banner = document.createElement('div');
+          banner.style.cssText = 'font-family: system-ui, sans-serif; max-width: 620px; margin: 3rem auto; padding: 2.2rem; background: #ffffff; border: 2px solid #c69234; border-radius: 12px; box-shadow: 0 15px 30px rgba(0,0,0,0.15); color: #1e293b; text-align: center;';
+          banner.innerHTML = `
+            <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">⚖️</div>
+            <h2 style="color: #0b1528; margin-bottom: 0.75rem; font-family: serif;">Proyecto Vite: Gabriel Tomás Procurador</h2>
+            <p style="color: #64748b; line-height: 1.6; margin-bottom: 1.5rem; font-size: 0.95rem;">
+              Has abierto el archivo directamente desde el explorador de archivos (<code>file://</code>). Los navegadores bloquean la carga de módulos JavaScript modernos (ES Modules) por política de seguridad si no se abren a través de un servidor.
+            </p>
+            <div style="background: #0b1528; color: #dfb15b; padding: 1rem; border-radius: 8px; font-family: monospace; font-size: 1.05rem; margin-bottom: 1.5rem; text-align: left;">
+              <span style="color: #94a3b8;"># En la terminal ejecuta:</span><br>
+              npm run dev
+            </div>
+            <p style="font-size: 1rem; color: #1e293b; margin-bottom: 0.5rem;">
+              Luego abre en tu navegador:
+            </p>
+            <a href="http://localhost:5173" style="display: inline-block; background: #c69234; color: #fff; padding: 0.75rem 1.75rem; border-radius: 8px; text-decoration: none; font-weight: bold; font-size: 1.05rem;">
+              Abrir http://localhost:5173
+            </a>
+          `;
+          document.body.prepend(banner);
+        }
+      });
+    }
+  </script>
 </body>
 </html>

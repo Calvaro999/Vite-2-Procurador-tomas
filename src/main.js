@@ -1,9 +1,5 @@
-import './styles/estilos.css';
 import { Navbar } from './components/navbar.js';
 import { Section } from './components/section.js';
-
-// Elemento raíz de la aplicación
-const app = document.querySelector('#app') || document.body;
 
 // 1. SECCIÓN INICIO / HERO
 const seccionInicio = Section({
@@ -11,7 +7,7 @@ const seccionInicio = Section({
   className: 'section-hero',
   contenido: `
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
         <div>
           <div class="badge-tag" style="margin-bottom: 1.5rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -19,10 +15,10 @@ const seccionInicio = Section({
             </svg>
             Colegiado ICPIB Nº 120 · Palma de Mallorca
           </div>
-          <h1 style="color: #ffffff; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.2; margin-bottom: 1.5rem; font-family: var(--font-serif);">
+          <h1 style="color: #ffffff; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif);">
             "El Procurador es el representante procesal del ciudadano".
           </h1>
-          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+          <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
             Agilizamos sus procedimientos judiciales en Palma, Manacor e Inca. Supervisión técnica rigurosa de cada fase, resolución de obstáculos procesales y comunicación constante e inmediata con su abogado.
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
@@ -55,7 +51,7 @@ const seccionInicio = Section({
 
         <div style="position: relative;">
           <div style="position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); border: 2px solid rgba(198, 146, 52, 0.35);">
-            <img src="/images/hero_procurador.jpg" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <img src="/images/hero_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/hero_procurador.jpg';}" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent 0%, rgba(11, 21, 40, 0.95) 100%); padding: 1.5rem; color: #ffffff;">
               <span style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; display: block;">Gabriel Tomás Gili</span>
               <span style="font-size: 0.85rem; color: #dfb15b;">Procurador Colegiado ICPIB nº 120 · Illes Balears</span>
@@ -165,7 +161,6 @@ const seccionServicios = Section({
       </div>
 
       <div class="services-grid">
-        <!-- Servicio 1 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -181,7 +176,6 @@ const seccionServicios = Section({
           <span class="service-badge">Área Procesal</span>
         </div>
 
-        <!-- Servicio 2 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -194,7 +188,6 @@ const seccionServicios = Section({
           <span class="service-badge">Reducción de Tiempos</span>
         </div>
 
-        <!-- Servicio 3 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -207,7 +200,6 @@ const seccionServicios = Section({
           <span class="service-badge">Supervisión Diaria</span>
         </div>
 
-        <!-- Servicio 4 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -239,7 +231,6 @@ const seccionPreguntas = Section({
       </div>
 
       <div class="faq-container">
-        <!-- FAQ 1 -->
         <div class="faq-item active">
           <button class="faq-question" type="button">
             <span>¿Qué es exactamente el Servicio Integral del despacho?</span>
@@ -254,7 +245,6 @@ const seccionPreguntas = Section({
           </div>
         </div>
 
-        <!-- FAQ 2 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿Cómo agiliza los trámites la realización directa de Actos de Comunicación?</span>
@@ -269,7 +259,6 @@ const seccionPreguntas = Section({
           </div>
         </div>
 
-        <!-- FAQ 3 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿En qué partidos judiciales ejerce Gabriel Tomás Gili?</span>
@@ -284,7 +273,6 @@ const seccionPreguntas = Section({
           </div>
         </div>
 
-        <!-- FAQ 4 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿Cómo puedo solicitar un presupuesto previo o designar procurador?</span>
@@ -316,7 +304,6 @@ const seccionContacto = Section({
       </div>
 
       <div class="contact-layout">
-        <!-- Tarjeta de contacto directo -->
         <div class="contact-info-card">
           <div>
             <span class="badge-tag" style="background: rgba(198, 146, 52, 0.2); border-color: rgba(198, 146, 52, 0.5); color: #fce7b2;">Despacho Profesional</span>
@@ -381,7 +368,6 @@ const seccionContacto = Section({
           </div>
         </div>
 
-        <!-- Formulario de consulta -->
         <div class="contact-form-container">
           <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-navy);">Enviar Consulta o Encargo</h3>
           <p style="font-size: 0.95rem; margin-bottom: 1.75rem;">Complete este formulario y nos pondremos en contacto con usted en un plazo máximo de 24 horas laborables.</p>
@@ -493,43 +479,59 @@ footer.innerHTML = `
   </div>
 `;
 
-// AÑADIR TODOS LOS COMPONENTES EN ORDEN USANDO app.append(...) SEGÚN ENUNCIADO
-app.append(
-  Navbar(),
-  seccionInicio,
-  seccionQuienesSomos,
-  seccionServicios,
-  seccionPreguntas,
-  seccionContacto,
-  footer
-);
+// Función para montar los componentes en orden
+function renderApp() {
+  const app = document.querySelector('#app') || document.body;
+  if (!app) return;
 
-// Interactividad del formulario de consulta
-const contactForm = document.querySelector('#form-consulta');
-if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const feedback = document.querySelector('#form-feedback');
-    const submitBtn = contactForm.querySelector('button[type="submit"]');
+  // Limpiar contenedor previo para garantizar idempotencia
+  app.innerHTML = '';
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = 'Enviando consulta...';
+  // app.append(...) para añadir la navbar y todas las secciones en orden según el enunciado
+  app.append(
+    Navbar(),
+    seccionInicio,
+    seccionQuienesSomos,
+    seccionServicios,
+    seccionPreguntas,
+    seccionContacto,
+    footer
+  );
 
-    setTimeout(() => {
-      submitBtn.disabled = false;
-      submitBtn.textContent = 'Enviar Consulta al Despacho';
-      contactForm.reset();
+  // Interactividad del formulario de consulta
+  const contactForm = document.querySelector('#form-consulta');
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const feedback = document.querySelector('#form-feedback');
+      const submitBtn = contactForm.querySelector('button[type="submit"]');
 
-      if (feedback) {
-        feedback.style.display = 'block';
-        feedback.style.background = 'rgba(5, 150, 105, 0.15)';
-        feedback.style.color = '#059669';
-        feedback.style.border = '1px solid #059669';
-        feedback.innerHTML = `
-          <strong>✓ Mensaje recibido correctamente.</strong><br>
-          El procurador Gabriel Tomás revisará su consulta y le responderá a la mayor brevedad.
-        `;
-      }
-    }, 700);
-  });
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Enviando consulta...';
+
+      setTimeout(() => {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Enviar Consulta al Despacho';
+        contactForm.reset();
+
+        if (feedback) {
+          feedback.style.display = 'block';
+          feedback.style.background = 'rgba(5, 150, 105, 0.15)';
+          feedback.style.color = '#059669';
+          feedback.style.border = '1px solid #059669';
+          feedback.innerHTML = `
+            <strong>✓ Mensaje recibido correctamente.</strong><br>
+            El procurador Gabriel Tomás revisará su consulta y le responderá a la mayor brevedad.
+          `;
+        }
+      }, 700);
+    });
+  }
+}
+
+// Ejecución segura una vez que el DOM esté disponible
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderApp);
+} else {
+  renderApp();
 }

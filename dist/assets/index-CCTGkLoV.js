@@ -616,9 +616,9 @@
         padding: 4rem 1.25rem;
       }
     }
-  `,r.appendChild(i),r.querySelectorAll(`.faq-question`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.closest(`.faq-item`);if(t){let e=t.classList.contains(`active`);r.querySelectorAll(`.faq-item`).forEach(e=>e.classList.remove(`active`)),e||t.classList.add(`active`)}})}),r}var n=document.querySelector(`#app`)||document.body,r=t({id:`inicio`,className:`section-hero`,contenido:`
+  `,r.appendChild(i),r.querySelectorAll(`.faq-question`).forEach(e=>{e.addEventListener(`click`,()=>{let t=e.closest(`.faq-item`);if(t){let e=t.classList.contains(`active`);r.querySelectorAll(`.faq-item`).forEach(e=>e.classList.remove(`active`)),e||t.classList.add(`active`)}})}),r}var n=t({id:`inicio`,className:`section-hero`,contenido:`
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 3.5rem; align-items: center;">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
         <div>
           <div class="badge-tag" style="margin-bottom: 1.5rem;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -626,10 +626,10 @@
             </svg>
             Colegiado ICPIB Nº 120 · Palma de Mallorca
           </div>
-          <h1 style="color: #ffffff; font-size: clamp(2.2rem, 4vw, 3.4rem); line-height: 1.2; margin-bottom: 1.5rem; font-family: var(--font-serif);">
+          <h1 style="color: #ffffff; font-size: clamp(2rem, 3.5vw, 3.2rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif);">
             "El Procurador es el representante procesal del ciudadano".
           </h1>
-          <p style="color: #cbd5e1; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
+          <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.8; margin-bottom: 2rem;">
             Agilizamos sus procedimientos judiciales en Palma, Manacor e Inca. Supervisión técnica rigurosa de cada fase, resolución de obstáculos procesales y comunicación constante e inmediata con su abogado.
           </p>
           <div style="display: flex; flex-wrap: wrap; gap: 1rem; align-items: center;">
@@ -662,7 +662,7 @@
 
         <div style="position: relative;">
           <div style="position: relative; border-radius: 18px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6); border: 2px solid rgba(198, 146, 52, 0.35);">
-            <img src="/images/hero_procurador.jpg" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
+            <img src="/images/hero_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/hero_procurador.jpg';}" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
             <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent 0%, rgba(11, 21, 40, 0.95) 100%); padding: 1.5rem; color: #ffffff;">
               <span style="font-family: var(--font-serif); font-size: 1.1rem; font-weight: 600; display: block;">Gabriel Tomás Gili</span>
               <span style="font-size: 0.85rem; color: #dfb15b;">Procurador Colegiado ICPIB nº 120 · Illes Balears</span>
@@ -671,7 +671,7 @@
         </div>
       </div>
     </div>
-  `}),i=t({id:`quienessomos`,className:`section-light`,contenido:`
+  `}),r=t({id:`quienessomos`,className:`section-light`,contenido:`
     <div class="container">
       <div class="section-header">
         <span class="badge-tag">Trayectoria & Compromiso</span>
@@ -749,7 +749,7 @@
         </div>
       </div>
     </div>
-  `}),a=t({id:`servicios`,className:`section-alt`,contenido:`
+  `}),i=t({id:`servicios`,className:`section-alt`,contenido:`
     <div class="container">
       <div class="section-header">
         <span class="badge-tag">Especialidades Profesionales</span>
@@ -758,7 +758,6 @@
       </div>
 
       <div class="services-grid">
-        <!-- Servicio 1 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -774,7 +773,6 @@
           <span class="service-badge">Área Procesal</span>
         </div>
 
-        <!-- Servicio 2 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -787,7 +785,6 @@
           <span class="service-badge">Reducción de Tiempos</span>
         </div>
 
-        <!-- Servicio 3 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -800,7 +797,6 @@
           <span class="service-badge">Supervisión Diaria</span>
         </div>
 
-        <!-- Servicio 4 -->
         <div class="service-card">
           <div class="service-icon">
             <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -816,7 +812,7 @@
         </div>
       </div>
     </div>
-  `}),o=t({id:`preguntas`,className:`section-light`,contenido:`
+  `}),a=t({id:`preguntas`,className:`section-light`,contenido:`
     <div class="container">
       <div class="section-header">
         <span class="badge-tag">Respuestas Claras</span>
@@ -825,7 +821,6 @@
       </div>
 
       <div class="faq-container">
-        <!-- FAQ 1 -->
         <div class="faq-item active">
           <button class="faq-question" type="button">
             <span>¿Qué es exactamente el Servicio Integral del despacho?</span>
@@ -840,7 +835,6 @@
           </div>
         </div>
 
-        <!-- FAQ 2 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿Cómo agiliza los trámites la realización directa de Actos de Comunicación?</span>
@@ -855,7 +849,6 @@
           </div>
         </div>
 
-        <!-- FAQ 3 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿En qué partidos judiciales ejerce Gabriel Tomás Gili?</span>
@@ -870,7 +863,6 @@
           </div>
         </div>
 
-        <!-- FAQ 4 -->
         <div class="faq-item">
           <button class="faq-question" type="button">
             <span>¿Cómo puedo solicitar un presupuesto previo o designar procurador?</span>
@@ -886,7 +878,7 @@
         </div>
       </div>
     </div>
-  `}),s=t({id:`contacto`,className:`section-alt`,contenido:`
+  `}),o=t({id:`contacto`,className:`section-alt`,contenido:`
     <div class="container">
       <div class="section-header">
         <span class="badge-tag">Atención Personalizada</span>
@@ -895,7 +887,6 @@
       </div>
 
       <div class="contact-layout">
-        <!-- Tarjeta de contacto directo -->
         <div class="contact-info-card">
           <div>
             <span class="badge-tag" style="background: rgba(198, 146, 52, 0.2); border-color: rgba(198, 146, 52, 0.5); color: #fce7b2;">Despacho Profesional</span>
@@ -960,7 +951,6 @@
           </div>
         </div>
 
-        <!-- Formulario de consulta -->
         <div class="contact-form-container">
           <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--primary-navy);">Enviar Consulta o Encargo</h3>
           <p style="font-size: 0.95rem; margin-bottom: 1.75rem;">Complete este formulario y nos pondremos en contacto con usted en un plazo máximo de 24 horas laborables.</p>
@@ -1014,13 +1004,13 @@
         </div>
       </div>
     </div>
-  `}),c=document.createElement(`footer`);c.style.cssText=`
+  `}),s=document.createElement(`footer`);s.style.cssText=`
   background: #070d18;
   color: #94a3b8;
   padding: 3.5rem 1.5rem 2rem 1.5rem;
   border-top: 1px solid rgba(198, 146, 52, 0.25);
   font-size: 0.9rem;
-`,c.innerHTML=`
+`,s.innerHTML=`
   <div class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2.5rem; margin-bottom: 2.5rem;">
       <div>
@@ -1064,7 +1054,7 @@
       </div>
     </div>
   </div>
-`,n.append(e(),r,i,a,o,s,c);var l=document.querySelector(`#form-consulta`);l&&l.addEventListener(`submit`,e=>{e.preventDefault();let t=document.querySelector(`#form-feedback`),n=l.querySelector(`button[type="submit"]`);n.disabled=!0,n.textContent=`Enviando consulta...`,setTimeout(()=>{n.disabled=!1,n.textContent=`Enviar Consulta al Despacho`,l.reset(),t&&(t.style.display=`block`,t.style.background=`rgba(5, 150, 105, 0.15)`,t.style.color=`#059669`,t.style.border=`1px solid #059669`,t.innerHTML=`
-          <strong>✓ Mensaje recibido correctamente.</strong><br>
-          El procurador Gabriel Tomás revisará su consulta y le responderá a la mayor brevedad.
-        `)},700)});
+`;function c(){let t=document.querySelector(`#app`)||document.body;if(!t)return;t.innerHTML=``,t.append(e(),n,r,i,a,o,s);let c=document.querySelector(`#form-consulta`);c&&c.addEventListener(`submit`,e=>{e.preventDefault();let t=document.querySelector(`#form-feedback`),n=c.querySelector(`button[type="submit"]`);n.disabled=!0,n.textContent=`Enviando consulta...`,setTimeout(()=>{n.disabled=!1,n.textContent=`Enviar Consulta al Despacho`,c.reset(),t&&(t.style.display=`block`,t.style.background=`rgba(5, 150, 105, 0.15)`,t.style.color=`#059669`,t.style.border=`1px solid #059669`,t.innerHTML=`
+            <strong>✓ Mensaje recibido correctamente.</strong><br>
+            El procurador Gabriel Tomás revisará su consulta y le responderá a la mayor brevedad.
+          `)},700)})}document.readyState===`loading`?document.addEventListener(`DOMContentLoaded`,c):c();
