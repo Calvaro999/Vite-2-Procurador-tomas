@@ -10,7 +10,7 @@
   --gold-accent: #c69234;
   --gold-light: #dfb15b;
   --gold-hover: #a87924;
-  --gold-glow: rgba(198, 146, 52, 0.2);
+  --gold-glow: rgba(198, 146, 52, 0.25);
   
   --text-main: #0f172a;
   --text-muted: #475569;
@@ -63,7 +63,7 @@ body {
 }
 
 /* ===================================================
-   EFECTO MINIMALISTA DE RATÓN: AMBIENT GLOW & POINTER
+   EFECTO MINIMALISTA DE RATÓN: AMBIENT GLOW POR DETRÁS
    =================================================== */
 #ambient-mouse-glow {
   position: fixed;
@@ -72,71 +72,45 @@ body {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 99;
+  z-index: 1; /* Situado POR DETRÁS de todos los elementos de la página */
   background: radial-gradient(
-    500px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
-    rgba(198, 146, 52, 0.065),
-    transparent 75%
+    580px circle at var(--mouse-x, -500px) var(--mouse-y, -500px),
+    rgba(218, 165, 32, 0.35) 0%,
+    rgba(198, 146, 52, 0.2) 35%,
+    rgba(198, 146, 52, 0.08) 65%,
+    transparent 80%
   );
-  transition: opacity 0.3s ease;
+  transition: opacity 0.25s ease;
   will-change: background;
 }
 
-/* Cursor customizado minimalista */
+/* Cursor customizado minimalista (solo el punto dorado refinado) */
 .custom-cursor-dot {
   position: fixed;
   top: 0;
   left: 0;
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   background: #dfb15b;
   border-radius: 50%;
   pointer-events: none;
   z-index: 100000;
   transform: translate(-50%, -50%);
-  transition: opacity 0.2s ease, transform 0.1s ease;
-  box-shadow: 0 0 8px rgba(223, 177, 91, 0.8);
+  transition: opacity 0.2s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), background 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 10px 2px rgba(223, 177, 91, 0.8), 0 0 20px rgba(198, 146, 52, 0.4);
 }
 
-.custom-cursor-ring {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 34px;
-  height: 34px;
-  border: 1.5px solid rgba(198, 146, 52, 0.45);
-  background: rgba(198, 146, 52, 0.03);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 99999;
-  transform: translate(-50%, -50%);
-  transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              height 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.25s ease,
-              background 0.25s ease,
-              transform 0.1s ease;
-  backdrop-filter: blur(1px);
-}
-
-/* Estado del cursor al pasar por elementos interactivos */
-body.cursor-hover .custom-cursor-ring {
-  width: 54px;
-  height: 54px;
-  border-color: rgba(223, 177, 91, 0.9);
-  background: rgba(198, 146, 52, 0.08);
-  box-shadow: 0 0 16px rgba(198, 146, 52, 0.3);
-}
-
+/* Estado del punto al pasar por elementos interactivos */
 body.cursor-hover .custom-cursor-dot {
-  transform: translate(-50%, -50%) scale(1.6);
+  transform: translate(-50%, -50%) scale(1.7);
   background: #ffffff;
+  box-shadow: 0 0 14px 4px rgba(223, 177, 91, 0.95), 0 0 24px rgba(198, 146, 52, 0.6);
 }
 
 /* Ocultar en dispositivos táctiles */
 @media (pointer: coarse) {
   #ambient-mouse-glow,
-  .custom-cursor-dot,
-  .custom-cursor-ring {
+  .custom-cursor-dot {
     display: none !important;
   }
 }
@@ -158,6 +132,8 @@ body.cursor-hover .custom-cursor-dot {
 }
 
 #app {
+  position: relative;
+  z-index: 2; /* Elementos por delante del brillo ambiental */
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -211,11 +187,40 @@ a:hover {
   letter-spacing: 0.12em;
 }
 
+/* Indicador de Estado LexNET en Vivo */
+.status-lexnet {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.35rem 0.85rem;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #10b981;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.status-lexnet-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseLexnet 2s infinite ease-in-out;
+}
+@keyframes pulseLexnet {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
 /* ===================================================
-   BOTONES CON EFECTO 3D Y ACABADO GLOSSY PROFESIONAL
+   BOTONES CON EFECTO 3D Y REFLEJO GLOSSY QUE SIGUE EL RATÓN
    =================================================== */
 .btn-primary, .btn-secondary {
   position: relative;
+  z-index: 15; /* Botones por encima con su brillo en la superficie */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -232,53 +237,49 @@ a:hover {
   user-select: none;
   transform-style: preserve-3d;
   perspective: 600px;
-  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
               border-color 0.25s ease,
               background 0.25s ease;
 }
 
-/* Capa de brillo Glossy que barre la superficie */
-.btn-primary::before, .btn-secondary::before {
+/* CAPA GLOSSY INTERACTIVA QUE SIGUE EXACTAMENTE LA POSICIÓN DEL RATÓN */
+.btn-primary::after, .btn-secondary::after {
   content: '';
   position: absolute;
-  top: 0;
-  left: -120%;
-  width: 80%;
-  height: 100%;
-  background: linear-gradient(
-    115deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.1) 20%,
-    rgba(255, 255, 255, 0.45) 50%,
-    rgba(255, 255, 255, 0.1) 80%,
-    transparent 100%
-  );
-  transform: skewX(-20deg);
-  transition: left 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  inset: 0;
+  border-radius: inherit;
   pointer-events: none;
-  z-index: 2;
+  opacity: 0;
+  background: radial-gradient(
+    circle 90px at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(255, 255, 255, 0.65) 0%,
+    rgba(255, 255, 255, 0.2) 40%,
+    transparent 80%
+  );
+  transition: opacity 0.25s ease;
+  z-index: 3;
+  mix-blend-mode: overlay;
 }
 
-.btn-primary:hover::before, .btn-secondary:hover::before {
-  left: 140%;
+.btn-primary:hover::after, .btn-secondary:hover::after {
+  opacity: 1;
 }
 
-/* BOTÓN PRIMARIO: Relieve 3D Dorado Pulido y Bisel Brillante */
+/* BOTÓN PRIMARIO: Relieve 3D Dorado Pulido */
 .btn-primary {
   background: linear-gradient(180deg, #dfb15b 0%, #c69234 40%, #a67620 100%);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.35);
   box-shadow: 
-    0 4px 0 #785210,                       /* Bisel 3D inferior */
-    0 8px 18px rgba(198, 146, 52, 0.35),   /* Sombra difusa */
-    inset 0 1px 1px rgba(255, 255, 255, 0.6),/* Reflejo glossy superior */
-    inset 0 -2px 4px rgba(0, 0, 0, 0.2);   /* Profundidad inferior */
+    0 4px 0 #785210,
+    0 8px 18px rgba(198, 146, 52, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.2);
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .btn-primary:hover {
-  transform: translateY(-3px) scale(1.02);
   background: linear-gradient(180deg, #ecd189 0%, #d4a23f 40%, #b88528 100%);
   box-shadow: 
     0 6px 0 #785210,
@@ -289,14 +290,14 @@ a:hover {
 }
 
 .btn-primary:active {
-  transform: translateY(2px) scale(0.99);
+  transform: translateY(2px) scale(0.99) !important;
   box-shadow: 
     0 1px 0 #785210,
     0 3px 8px rgba(198, 146, 52, 0.3),
     inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
-/* BOTÓN SECUNDARIO: Glassmorphism 3D con Borde Dorado */
+/* BOTÓN SECUNDARIO: Glassmorphism 3D */
 .btn-secondary {
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%);
   color: var(--text-light);
@@ -313,7 +314,6 @@ a:hover {
   background: linear-gradient(180deg, rgba(198, 146, 52, 0.22) 0%, rgba(198, 146, 52, 0.08) 100%);
   border-color: var(--gold-light);
   color: #ffffff;
-  transform: translateY(-3px) scale(1.02);
   box-shadow: 
     0 6px 0 rgba(6, 12, 24, 0.9),
     0 14px 28px rgba(0, 0, 0, 0.35),
@@ -321,10 +321,55 @@ a:hover {
 }
 
 .btn-secondary:active {
-  transform: translateY(2px) scale(0.99);
+  transform: translateY(2px) scale(0.99) !important;
   box-shadow: 
     0 1px 0 rgba(6, 12, 24, 0.9),
     0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================================
+   TARJETAS CON EFECTO GLOSSY DINÁMICO QUE SIGUE EL RATÓN
+   =================================================== */
+.service-card {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  padding: 2.4rem 2rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  box-shadow: 0 4px 16px rgba(6, 12, 24, 0.04);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.25s ease;
+  transform-style: preserve-3d;
+  perspective: 700px;
+}
+
+/* Resplandor Glossy que sigue el ratón sobre la tarjeta */
+.service-card::before,
+.about-highlight-box::after,
+.district-panel::after,
+.contact-form-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    240px circle at var(--glow-x, 50%) var(--glow-y, 50%),
+    rgba(198, 146, 52, 0.18) 0%,
+    transparent 80%
+  );
+  transition: opacity 0.25s ease;
+  z-index: 1;
+}
+
+.service-card:hover::before,
+.about-highlight-box:hover::after,
+.district-panel:hover::after,
+.contact-form-container:hover::after {
+  opacity: 1;
 }
 
 /* Encabezados de Sección */
@@ -383,3 +428,278 @@ a:hover {
 .reveal-delay-2 { transition-delay: 0.2s; }
 .reveal-delay-3 { transition-delay: 0.3s; }
 .reveal-delay-4 { transition-delay: 0.4s; }
+
+/* ===================================================
+   EXPLORADOR DE PARTIDOS JUDICIALES (INTERACTIVO)
+   =================================================== */
+.districts-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.district-tab-btn {
+  padding: 0.7rem 1.6rem;
+  background: #ffffff;
+  border: 1px solid rgba(203, 213, 225, 0.9);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.district-tab-btn:hover {
+  border-color: #c69234;
+  color: #c69234;
+}
+
+.district-tab-btn.active {
+  background: #060c18;
+  color: #dfb15b;
+  border-color: #c69234;
+  box-shadow: 0 4px 14px rgba(6, 12, 24, 0.2);
+}
+
+.district-panel {
+  display: none;
+  background: #ffffff;
+  border: 1px solid rgba(198, 146, 52, 0.3);
+  border-radius: var(--radius-sm);
+  padding: 2.2rem;
+  box-shadow: var(--shadow-md);
+  animation: fadeInPanel 0.35s ease forwards;
+}
+
+.district-panel.active {
+  display: block;
+}
+
+@keyframes fadeInPanel {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================================================
+   CALCULADORA DE ARANCELES PROCESALES
+   =================================================== */
+.calculator-card {
+  background: linear-gradient(135deg, #0a1324 0%, #060c18 100%);
+  border: 1px solid rgba(198, 146, 52, 0.4);
+  border-radius: var(--radius-md);
+  padding: 2.8rem 2.4rem;
+  color: #f8fafc;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  max-width: 960px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.calculator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #c69234, #dfb15b);
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.calc-result-box {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(198, 146, 52, 0.35);
+  border-radius: 8px;
+  padding: 2rem;
+  text-align: center;
+  backdrop-filter: blur(10px);
+}
+
+.calc-amount-display {
+  font-family: var(--font-serif);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: #dfb15b;
+  margin: 0.5rem 0;
+  text-shadow: 0 0 20px rgba(223, 177, 91, 0.3);
+}
+
+@media (max-width: 800px) {
+  .calc-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===================================================
+   BOTÓN FLOTANTE DE URGENCIAS Y PLAZOS LEXNET
+   =================================================== */
+.floating-emergency-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(180deg, #dfb15b 0%, #c69234 40%, #a67620 100%);
+  color: #ffffff;
+  padding: 0.85rem 1.4rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 8px 24px rgba(6, 12, 24, 0.4), 0 0 16px rgba(198, 146, 52, 0.45);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.floating-emergency-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 12px 32px rgba(6, 12, 24, 0.5), 0 0 24px rgba(198, 146, 52, 0.65);
+  color: #ffffff;
+}
+
+/* ===================================================
+   CARRUSEL JUDICIAL EN SECCIÓN HERO
+   =================================================== */
+.hero-carousel-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75);
+  border: 2px solid rgba(198, 146, 52, 0.35);
+  background: #060c18;
+  aspect-ratio: 16 / 9;
+}
+
+.hero-carousel-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: scale(1.04);
+}
+
+.hero-slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.hero-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(6, 12, 24, 0.95) 100%);
+  padding: 1.75rem 1.5rem 1.25rem 1.5rem;
+  color: #ffffff;
+  z-index: 2;
+}
+
+.hero-slide-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.2rem;
+}
+
+.hero-slide-subtitle {
+  font-size: 0.8rem;
+  color: #dfb15b;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(6, 12, 24, 0.75);
+  border: 1px solid rgba(198, 146, 52, 0.45);
+  color: #dfb15b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.carousel-btn:hover {
+  background: #c69234;
+  color: #ffffff;
+  border-color: #dfb15b;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 0 16px rgba(198, 146, 52, 0.5);
+}
+
+.carousel-btn.prev {
+  left: 12px;
+}
+
+.carousel-btn.next {
+  right: 12px;
+}
+
+.carousel-indicators {
+  position: absolute;
+  bottom: 14px;
+  right: 18px;
+  z-index: 5;
+  display: flex;
+  gap: 6px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  width: 26px;
+  border-radius: 5px;
+  background: #dfb15b;
+  box-shadow: 0 0 8px rgba(223, 177, 91, 0.8);
+}

@@ -2,7 +2,7 @@ import { Navbar } from './components/navbar.js';
 import { Section } from './components/section.js';
 import { IntroAnimation } from './components/introAnimation.js';
 
-// 1. SECCIÓN INICIO / HERO
+// 1. SECCIÓN INICIO / HERO CON STATUS LEXNET EN VIVO
 const seccionInicio = Section({
   id: 'inicio',
   className: 'section-hero',
@@ -10,14 +10,21 @@ const seccionInicio = Section({
     <div class="container">
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3.5rem; align-items: center;">
         <div class="reveal-item">
-          <div class="badge-tag" style="margin-bottom: 1.5rem;">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            </svg>
-            Colegiado ICPIB Nº 120 · Palma de Mallorca
+          <!-- Insignias y Estado de Registro Judicial -->
+          <div style="display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+            <div class="badge-tag">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              Colegiado ICPIB Nº 120 · Palma de Mallorca
+            </div>
+            <div class="status-lexnet">
+              <span class="status-lexnet-dot"></span>
+              Sede LexNET Operativa · Día Hábil
+            </div>
           </div>
           
-          <h1 style="color: #ffffff; font-size: clamp(2rem, 3.6vw, 3.3rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif); font-weight: 700;">
+          <h1 style="color: #ffffff; font-size: clamp(2.1rem, 3.8vw, 3.4rem); line-height: 1.25; margin-bottom: 1.5rem; font-family: var(--font-serif); font-weight: 700;">
             "El Procurador es el representante procesal del ciudadano".
           </h1>
           
@@ -26,14 +33,17 @@ const seccionInicio = Section({
           </p>
 
           <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; align-items: center;">
-            <a href="#contacto" class="btn-primary" data-3d-btn>
+            <a href="#calculadora" class="btn-primary" data-3d-btn>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                <line x1="8" y1="6" x2="16" y2="6"/>
+                <line x1="8" y1="10" x2="16" y2="10"/>
+                <line x1="8" y1="14" x2="12" y2="14"/>
               </svg>
-              Solicitar Presupuesto Oficial
+              Calcular Aranceles Orientativos
             </a>
-            <a href="#servicios" class="btn-secondary" data-3d-btn>
-              Servicios Procesales
+            <a href="#contacto" class="btn-secondary" data-3d-btn>
+              Solicitar Intervención
             </a>
           </div>
 
@@ -55,11 +65,51 @@ const seccionInicio = Section({
         </div>
 
         <div class="reveal-item reveal-delay-2" style="position: relative;">
-          <div style="position: relative; border-radius: 8px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.75); border: 2px solid rgba(198, 146, 52, 0.35);">
-            <img src="/images/hero_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/hero_procurador.jpg';}" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" style="width: 100%; height: auto; display: block; object-fit: cover;" />
-            <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(180deg, transparent 0%, rgba(6, 12, 24, 0.96) 100%); padding: 1.75rem; color: #ffffff;">
-              <span style="font-family: var(--font-serif); font-size: 1.2rem; font-weight: 700; letter-spacing: 0.05em; display: block;">Gabriel Tomás Gili</span>
-              <span style="font-size: 0.82rem; color: #dfb15b; letter-spacing: 0.12em; text-transform: uppercase;">Procurador Colegiado ICPIB nº 120 · Illes Balears</span>
+          <div class="hero-carousel-container" id="hero-carousel">
+            <div class="hero-carousel-slides">
+              <!-- Slide 1 -->
+              <div class="hero-slide active" data-slide-index="0">
+                <img src="/images/hero_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/hero_procurador.jpg';}" alt="Despacho Procurador Gabriel Tomás en Palma de Mallorca" />
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-title">Gabriel Tomás Gili</span>
+                  <span class="hero-slide-subtitle">Procurador Colegiado ICPIB nº 120 · Despacho Palma</span>
+                </div>
+              </div>
+              <!-- Slide 2 -->
+              <div class="hero-slide" data-slide-index="1">
+                <img src="/images/palacio_justicia_palma.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/palacio_justicia_palma.jpg';}" alt="Tribunales y Palacio de Justicia en Palma de Mallorca" />
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-title">Palacio de Justicia & Tribunales</span>
+                  <span class="hero-slide-subtitle">Presencia Diaria · Partidos Judiciales de Baleares</span>
+                </div>
+              </div>
+              <!-- Slide 3 -->
+              <div class="hero-slide" data-slide-index="2">
+                <img src="/images/expedientes_procurador.jpg" onerror="if(!this.dataset.retry){this.dataset.retry=1;this.src='./public/images/expedientes_procurador.jpg';}" alt="Expedientes y Fe Pública Judicial en Palma" />
+                <div class="hero-slide-caption">
+                  <span class="hero-slide-title">Rigor Procesal & Fe Pública Judicial</span>
+                  <span class="hero-slide-subtitle">Control de Plazos · Diligencias · Plataforma LexNET</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Botones Prev / Next -->
+            <button type="button" class="carousel-btn prev" id="carousel-prev-btn" aria-label="Imagen anterior">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <button type="button" class="carousel-btn next" id="carousel-next-btn" aria-label="Imagen siguiente">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+
+            <!-- Indicadores -->
+            <div class="carousel-indicators" id="carousel-indicators">
+              <button type="button" class="carousel-dot active" data-index="0" aria-label="Slide 1"></button>
+              <button type="button" class="carousel-dot" data-index="1" aria-label="Slide 2"></button>
+              <button type="button" class="carousel-dot" data-index="2" aria-label="Slide 3"></button>
             </div>
           </div>
         </div>
@@ -68,7 +118,7 @@ const seccionInicio = Section({
   `
 });
 
-// 2. SECCIÓN QUIÉNES SOMOS
+// 2. SECCIÓN QUIÉNES SOMOS & EXPLORADOR DE PARTIDOS JUDICIALES
 const seccionQuienesSomos = Section({
   id: 'quienessomos',
   className: 'section-light',
@@ -81,7 +131,7 @@ const seccionQuienesSomos = Section({
         <p>Representación judicial de máxima solvencia procesal, rigor temporal y atención personalizada para profesionales de la abogacía y representados.</p>
       </div>
 
-      <div class="about-layout">
+      <div class="about-layout" style="margin-bottom: 4rem;">
         <div class="reveal-item">
           <h3 style="font-size: 1.8rem; margin-bottom: 1.25rem; font-family: var(--font-serif); color: var(--primary-navy);">
             Procuradores Mallorca · Gabriel Tomás Gili
@@ -151,6 +201,88 @@ const seccionQuienesSomos = Section({
             <a href="tel:+34971770574" class="btn-primary" data-3d-btn style="width: 100%; justify-content: center;">
               Llamar al Despacho
             </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EXPLORADOR INTERACTIVO DE PARTIDOS JUDICIALES -->
+      <div class="reveal-item" style="border-top: 1px solid rgba(203, 213, 225, 0.7); padding-top: 3.5rem;">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <span class="badge-tag">Cobertura Territorial en Mallorca</span>
+          <h3 style="font-size: 1.8rem; margin-top: 0.5rem; color: var(--primary-navy);">Explorador de Sedes Judiciales</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem;">Seleccione el partido judicial para consultar sedes y órganos adscritos:</p>
+        </div>
+
+        <div class="districts-tabs">
+          <button class="district-tab-btn active" data-district="palma">Partido Judicial nº 1: Palma de Mallorca</button>
+          <button class="district-tab-btn" data-district="manacor">Partido Judicial nº 2: Manacor</button>
+          <button class="district-tab-btn" data-district="inca">Partido Judicial nº 3: Inca</button>
+        </div>
+
+        <!-- Panel Palma -->
+        <div class="district-panel active" id="district-palma">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: center;">
+            <div>
+              <h4 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 0.5rem;">Palma de Mallorca (Sede Central)</h4>
+              <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1rem;">
+                <strong>Sedes Principales:</strong> Edificio Vía Alemania (Juzgados de 1ª Instancia, Instrucción, Social, Contencioso y Mercantil) y Plaza del Mercat (Audiencia Provincial de Baleares).
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">24 Juzgados de 1ª Instancia</span>
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">12 Juzgados de Instrucción</span>
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">Audiencia Provincial</span>
+              </div>
+            </div>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 3px solid #c69234;">
+              <strong style="display: block; font-size: 0.88rem; color: #060c18; margin-bottom: 0.35rem;">Presencia Diaria del Procurador:</strong>
+              <p style="font-size: 0.9rem; color: #475569; margin: 0;">
+                Asistencia física continua para traslados, vistas, comparecencias y personaciones directas en Sala de Notificaciones del ICPIB.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Manacor -->
+        <div class="district-panel" id="district-manacor">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: center;">
+            <div>
+              <h4 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 0.5rem;">Partido Judicial de Manacor</h4>
+              <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1rem;">
+                <strong>Sede Judicial:</strong> Plaza des Convent s/n, Manacor. Cubre los municipios del Llevant mallorquín (Manacor, Felanitx, Artà, Capdepera, Santanyí, Son Servera, etc.).
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">Juzgados Mixtos 1ª Instancia e Instrucción 1 a 6</span>
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">Registro Civil</span>
+              </div>
+            </div>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 3px solid #c69234;">
+              <strong style="display: block; font-size: 0.88rem; color: #060c18; margin-bottom: 0.35rem;">Tramitación y Exhortos:</strong>
+              <p style="font-size: 0.9rem; color: #475569; margin: 0;">
+                Gestión de lanzamientos, embargos y requerimientos judiciales en toda la demarcación de Manacor con control estricto de fechas.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel Inca -->
+        <div class="district-panel" id="district-inca">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; align-items: center;">
+            <div>
+              <h4 style="font-size: 1.3rem; color: var(--primary-navy); margin-bottom: 0.5rem;">Partido Judicial de Inca</h4>
+              <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 1rem;">
+                <strong>Sede Judicial:</strong> Carrer d'es Cos, Inca. Cobertura en la comarca del Raiguer, Alcúdia, Pollença, Muro, Sa Pobla y municipios adscritos.
+              </p>
+              <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">Juzgados Mixtos 1ª Instancia e Instrucción 1 a 5</span>
+                <span class="badge-tag" style="background:#f1f5f9; color:#334155;">Violencia sobre la Mujer</span>
+              </div>
+            </div>
+            <div style="background: #f8fafc; padding: 1.5rem; border-radius: 8px; border-left: 3px solid #c69234;">
+              <strong style="display: block; font-size: 0.88rem; color: #060c18; margin-bottom: 0.35rem;">Servicio Procesal Activo:</strong>
+              <p style="font-size: 0.9rem; color: #475569; margin: 0;">
+                Acompañamiento en sede de Inca y canalización directa de exhortos y notificaciones en toda la zona norte.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -231,7 +363,74 @@ const seccionServicios = Section({
   `
 });
 
-// 4. SECCIÓN PREGUNTAS FRECUENTES
+// 4. NUEVA SECCIÓN: CALCULADORA INTERACTIVA DE ARANCELES PROCESALES
+const seccionCalculadora = Section({
+  id: 'calculadora',
+  className: 'section-dark',
+  contenido: `
+    <div class="container">
+      <div class="section-header reveal-item">
+        <span class="badge-tag" style="background: rgba(198, 146, 52, 0.15); color: #dfb15b; border-color: rgba(198, 146, 52, 0.4);">
+          Transparencia y Aranceles Oficiales
+        </span>
+        <h2 style="color: #ffffff;">Calculadora Orientativa de Aranceles</h2>
+        <div class="legal-ornament"><span class="legal-ornament-icon">⚖</span></div>
+        <p style="color: #cbd5e1;">Estime los derechos arancelarios oficiales de procurador conforme al RD 1373/2003 y normativa procesal aplicable.</p>
+      </div>
+
+      <div class="calculator-card reveal-item">
+        <div class="calc-grid">
+          <div>
+            <div class="form-group">
+              <label for="calc-tipo" style="color: #dfb15b;">Tipo de Procedimiento Judicial</label>
+              <select id="calc-tipo" class="form-control" style="background: #060c18; color: #ffffff; border-color: rgba(198, 146, 52, 0.35);">
+                <option value="ordinario">Juicio Ordinario Civil</option>
+                <option value="verbal">Juicio Verbal</option>
+                <option value="monitorio">Procedimiento Monitorio</option>
+                <option value="ejecucion">Ejecución Dineraria o Hipotecaria</option>
+                <option value="penal">Procedimiento Abreviado / Penal</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="calc-cuantia" style="color: #dfb15b;">Cuantía del Pleito (€)</label>
+              <input type="number" id="calc-cuantia" class="form-control" value="12000" min="500" step="500" placeholder="Ej. 12000" style="background: #060c18; color: #ffffff; border-color: rgba(198, 146, 52, 0.35);" />
+            </div>
+
+            <div class="form-group">
+              <label for="calc-partido" style="color: #dfb15b;">Partido Judicial</label>
+              <select id="calc-partido" class="form-control" style="background: #060c18; color: #ffffff; border-color: rgba(198, 146, 52, 0.35);">
+                <option value="Palma de Mallorca">Palma de Mallorca (Sede Central)</option>
+                <option value="Manacor">Manacor</option>
+                <option value="Inca">Inca</option>
+              </select>
+            </div>
+
+            <p style="font-size: 0.8rem; color: #94a3b8; margin: 0; line-height: 1.5;">
+              * Importe orientativo de escala arancelaria legal. Sujeto a IVA vigente y particularidades procesales del expediente.
+            </p>
+          </div>
+
+          <div class="calc-result-box">
+            <span style="font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.12em; color: #cbd5e1; font-weight: 600;">
+              Estimación de Derechos Procurador:
+            </span>
+            <div class="calc-amount-display" id="calc-display-amount">~ 185 € - 265 €</div>
+            <p style="font-size: 0.85rem; color: #94a3b8; margin-bottom: 1.5rem;">
+              Incluye representación procesal, control diario de plazos e impulso de providencias.
+            </p>
+
+            <button type="button" id="calc-apply-btn" class="btn-primary" data-3d-btn style="width: 100%; justify-content: center;">
+              Solicitar Propuesta con estos Datos ›
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `
+});
+
+// 5. SECCIÓN PREGUNTAS FRECUENTES
 const seccionPreguntas = Section({
   id: 'preguntas',
   className: 'section-light',
@@ -305,7 +504,7 @@ const seccionPreguntas = Section({
   `
 });
 
-// 5. SECCIÓN CONTACTO Y FORMULARIO
+// 6. SECCIÓN CONTACTO Y FORMULARIO
 const seccionContacto = Section({
   id: 'contacto',
   className: 'section-alt',
@@ -413,10 +612,10 @@ const seccionContacto = Section({
               <div class="form-group">
                 <label for="partido">Partido Judicial de Actuación</label>
                 <select id="partido" class="form-control">
-                  <option value="palma">Palma de Mallorca (Sede Principal)</option>
-                  <option value="manacor">Manacor</option>
-                  <option value="inca">Inca</option>
-                  <option value="otros">Otros Órganos Judiciales (Baleares)</option>
+                  <option value="Palma de Mallorca">Palma de Mallorca (Sede Principal)</option>
+                  <option value="Manacor">Manacor</option>
+                  <option value="Inca">Inca</option>
+                  <option value="Otros">Otros Órganos Judiciales (Baleares)</option>
                 </select>
               </div>
             </div>
@@ -445,7 +644,7 @@ const seccionContacto = Section({
   `
 });
 
-// 6. COMPONENTE FOOTER
+// 7. COMPONENTE FOOTER
 const footer = document.createElement('footer');
 footer.style.cssText = `
   background: #040810;
@@ -481,6 +680,7 @@ footer.innerHTML = `
           <li><a href="#inicio" style="color: #cbd5e1;">Inicio</a></li>
           <li><a href="#quienessomos" style="color: #cbd5e1;">Quiénes Somos</a></li>
           <li><a href="#servicios" style="color: #cbd5e1;">Servicios Procesales</a></li>
+          <li><a href="#calculadora" style="color: #cbd5e1;">Calculadora de Aranceles</a></li>
           <li><a href="#preguntas" style="color: #cbd5e1;">Preguntas Frecuentes</a></li>
           <li><a href="#contacto" style="color: #cbd5e1;">Contacto y Presupuesto</a></li>
         </ul>
@@ -497,6 +697,22 @@ footer.innerHTML = `
       </div>
     </div>
   </div>
+`;
+
+// 8. BOTÓN FLOTANTE DE URGENCIAS Y PLAZOS JUDICIALES
+const emergencyBtn = document.createElement('a');
+emergencyBtn.className = 'floating-emergency-btn';
+emergencyBtn.href = 'https://api.whatsapp.com/send?phone=34609649224';
+emergencyBtn.target = '_blank';
+emergencyBtn.rel = 'noopener noreferrer';
+emergencyBtn.setAttribute('title', 'Notificación urgente o vencimiento de plazo procesal');
+emergencyBtn.innerHTML = `
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+    <circle cx="12" cy="12" r="10"/>
+    <line x1="12" y1="8" x2="12" y2="12"/>
+    <line x1="12" y1="16" x2="12.01" y2="16"/>
+  </svg>
+  <span>Urgencias / Plazos</span>
 `;
 
 // Inicializador de animaciones al hacer scroll (Scroll Reveal)
@@ -521,37 +737,50 @@ function setupScrollObserver() {
   document.querySelectorAll('.reveal-item').forEach(el => observer.observe(el));
 }
 
-// Inicializador del efecto 3D interactivo en los botones
-function setup3DButtons() {
-  const buttons = document.querySelectorAll('.btn-primary, .btn-secondary, [data-3d-btn], .call-btn');
+// Inicializador del efecto 3D interactivo y reflejo Glossy dinámico que sigue el ratón
+function setup3DButtonsAndGlossy() {
+  const elements = document.querySelectorAll(
+    '.btn-primary, .btn-secondary, [data-3d-btn], .call-btn, .service-card, .about-highlight-box, .district-panel, .contact-form-container'
+  );
 
-  buttons.forEach(btn => {
-    btn.addEventListener('mousemove', (e) => {
-      const rect = btn.getBoundingClientRect();
+  elements.forEach(el => {
+    el.addEventListener('mousemove', (e) => {
+      const rect = el.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       const centerX = rect.width / 2;
       const centerY = rect.height / 2;
 
-      // Cálculo de rotación 3D proporcional (máximo ±10 grados)
-      const rotateX = ((y - centerY) / centerY) * -9;
-      const rotateY = ((x - centerX) / centerX) * 9;
+      // Actualizar posición de la luz glossy specular exactamente donde está el cursor
+      el.style.setProperty('--glow-x', `${x}px`);
+      el.style.setProperty('--glow-y', `${y}px`);
 
-      btn.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px) scale(1.02)`;
+      // Solo botones tienen inclinación de rotación 3D pronunciada
+      if (el.classList.contains('btn-primary') || el.classList.contains('btn-secondary') || el.hasAttribute('data-3d-btn') || el.classList.contains('call-btn')) {
+        const rotateX = ((y - centerY) / centerY) * -9;
+        const rotateY = ((x - centerX) / centerX) * 9;
+        el.style.transform = `perspective(500px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-2px) scale(1.02)`;
+      } else if (el.classList.contains('service-card')) {
+        // En tarjetas, inclinación sutil y elegante
+        const rotateX = ((y - centerY) / centerY) * -3;
+        const rotateY = ((x - centerX) / centerX) * 3;
+        el.style.transform = `perspective(700px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
+      }
     });
 
-    btn.addEventListener('mouseleave', () => {
-      btn.style.transform = '';
+    el.addEventListener('mouseleave', () => {
+      el.style.transform = '';
+      el.style.removeProperty('--glow-x');
+      el.style.removeProperty('--glow-y');
     });
   });
 }
 
-// Inicializador del seguimiento minimalista del ratón (Ambient Glow & Cursor Follower)
+// Inicializador del seguimiento minimalista del ratón (Solo punto dorado, sin aro grande)
 function setupMouseInteractions() {
-  // Evitar en pantallas táctiles
   if (window.matchMedia('(pointer: coarse)').matches) return;
 
-  // 1. Crear capa de resplandor ambiental
+  // 1. Resplandor ambiental de fondo colocado por detrás de la aplicación
   let ambientGlow = document.getElementById('ambient-mouse-glow');
   if (!ambientGlow) {
     ambientGlow = document.createElement('div');
@@ -559,32 +788,19 @@ function setupMouseInteractions() {
     document.body.prepend(ambientGlow);
   }
 
-  // 2. Crear elementos del cursor minimalista
+  // 2. Solo el punto dorado minimalista (se eliminó el aro circular grande por petición)
   let cursorDot = document.querySelector('.custom-cursor-dot');
-  let cursorRing = document.querySelector('.custom-cursor-ring');
-
   if (!cursorDot) {
     cursorDot = document.createElement('div');
     cursorDot.className = 'custom-cursor-dot';
     document.body.appendChild(cursorDot);
   }
 
-  if (!cursorRing) {
-    cursorRing = document.createElement('div');
-    cursorRing.className = 'custom-cursor-ring';
-    document.body.appendChild(cursorRing);
-  }
-
-  let mouseX = -100;
-  let mouseY = -100;
-  let ringX = -100;
-  let ringY = -100;
-
   window.addEventListener('pointermove', (e) => {
-    mouseX = e.clientX;
-    mouseY = e.clientY;
+    const mouseX = e.clientX;
+    const mouseY = e.clientY;
 
-    // Actualizar coordenadas para el gradiente ambiental en tiempo real
+    // Actualizar coordenadas del resplandor ambiental
     document.documentElement.style.setProperty('--mouse-x', `${mouseX}px`);
     document.documentElement.style.setProperty('--mouse-y', `${mouseY}px`);
 
@@ -592,19 +808,7 @@ function setupMouseInteractions() {
     cursorDot.style.top = `${mouseY}px`;
   });
 
-  // Interpolación física fluida (Lerp) para el aro seguidor (efecto sedoso y minimalista)
-  function renderCursorRing() {
-    ringX += (mouseX - ringX) * 0.16;
-    ringY += (mouseY - ringY) * 0.16;
-
-    cursorRing.style.left = `${ringX}px`;
-    cursorRing.style.top = `${ringY}px`;
-
-    requestAnimationFrame(renderCursorRing);
-  }
-  requestAnimationFrame(renderCursorRing);
-
-  // Detección de elementos interactivos para expandir el aro con efecto magnético
+  // Efecto magnético del punto sobre elementos interactivos
   const interactiveSelector = 'a, button, .service-card, input, textarea, select, .faq-question, .badge-tag';
   document.addEventListener('mouseover', (e) => {
     if (e.target.closest(interactiveSelector)) {
@@ -618,16 +822,222 @@ function setupMouseInteractions() {
     }
   });
 
-  // Ocultar si el cursor sale de la ventana
   document.addEventListener('mouseleave', () => {
     cursorDot.style.opacity = '0';
-    cursorRing.style.opacity = '0';
   });
 
   document.addEventListener('mouseenter', () => {
     cursorDot.style.opacity = '1';
-    cursorRing.style.opacity = '1';
   });
+}
+
+// Inicializador de la Calculadora de Aranceles
+function setupCalculator() {
+  const tipoSelect = document.getElementById('calc-tipo');
+  const cuantiaInput = document.getElementById('calc-cuantia');
+  const displayAmount = document.getElementById('calc-display-amount');
+  const applyBtn = document.getElementById('calc-apply-btn');
+
+  function calculateFee() {
+    if (!tipoSelect || !cuantiaInput || !displayAmount) return;
+
+    const cuantia = parseFloat(cuantiaInput.value) || 0;
+    const tipo = tipoSelect.value;
+
+    let baseMin = 120;
+    let baseMax = 180;
+
+    if (tipo === 'ordinario') {
+      baseMin = Math.round(150 + cuantia * 0.012);
+      baseMax = Math.round(230 + cuantia * 0.016);
+    } else if (tipo === 'verbal') {
+      baseMin = Math.round(90 + cuantia * 0.008);
+      baseMax = Math.round(140 + cuantia * 0.011);
+    } else if (tipo === 'monitorio') {
+      baseMin = Math.round(60 + cuantia * 0.005);
+      baseMax = Math.round(110 + cuantia * 0.008);
+    } else if (tipo === 'ejecucion') {
+      baseMin = Math.round(130 + cuantia * 0.010);
+      baseMax = Math.round(195 + cuantia * 0.014);
+    } else {
+      baseMin = 140;
+      baseMax = 220;
+    }
+
+    displayAmount.textContent = `~ ${baseMin} € - ${baseMax} €`;
+  }
+
+  if (tipoSelect && cuantiaInput) {
+    tipoSelect.addEventListener('change', calculateFee);
+    cuantiaInput.addEventListener('input', calculateFee);
+  }
+
+  if (applyBtn) {
+    applyBtn.addEventListener('click', () => {
+      const tipo = tipoSelect ? tipoSelect.options[tipoSelect.selectedIndex].text : '';
+      const cuantia = cuantiaInput ? cuantiaInput.value : '';
+      const partidoSelect = document.getElementById('calc-partido');
+      const partidoVal = partidoSelect ? partidoSelect.value : 'Palma de Mallorca';
+
+      // Auto-completar el formulario de consulta
+      const formMensaje = document.getElementById('mensaje');
+      const formPartido = document.getElementById('partido');
+
+      if (formPartido) {
+        formPartido.value = partidoVal;
+      }
+      if (formMensaje) {
+        formMensaje.value = `Solicitud de presupuesto oficial para: ${tipo}, con una cuantía estimada de ${cuantia} €. Partido judicial de ${partidoVal}.`;
+      }
+
+      // Scroll suave hasta el formulario
+      const contactoSection = document.getElementById('contacto');
+      if (contactoSection) {
+        contactoSection.scrollIntoView({ behavior: 'smooth' });
+        const nombreInput = document.getElementById('nombre');
+        if (nombreInput) setTimeout(() => nombreInput.focus(), 600);
+      }
+    });
+  }
+}
+
+// Inicializador de las pestañas de Partidos Judiciales
+function setupDistrictTabs() {
+  const tabs = document.querySelectorAll('.district-tab-btn');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const target = tab.dataset.district;
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      document.querySelectorAll('.district-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+
+      const activePanel = document.getElementById(`district-${target}`);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
+}
+
+// Inicializador del carrusel de imágenes de la cabecera judicial
+function setupHeroCarousel() {
+  const container = document.getElementById('hero-carousel');
+  if (!container) return;
+
+  const slides = container.querySelectorAll('.hero-slide');
+  const dots = container.querySelectorAll('.carousel-dot');
+  const prevBtn = document.getElementById('carousel-prev-btn');
+  const nextBtn = document.getElementById('carousel-next-btn');
+
+  if (!slides.length) return;
+
+  let currentIndex = 0;
+  let autoplayTimer = null;
+  const AUTOPLAY_INTERVAL = 5000;
+
+  function goToSlide(index) {
+    if (index < 0) {
+      currentIndex = slides.length - 1;
+    } else if (index >= slides.length) {
+      currentIndex = 0;
+    } else {
+      currentIndex = index;
+    }
+
+    slides.forEach((slide, idx) => {
+      if (idx === currentIndex) {
+        slide.classList.add('active');
+      } else {
+        slide.classList.remove('active');
+      }
+    });
+
+    dots.forEach((dot, idx) => {
+      if (idx === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+
+  function nextSlide() {
+    goToSlide(currentIndex + 1);
+  }
+
+  function prevSlide() {
+    goToSlide(currentIndex - 1);
+  }
+
+  function startAutoplay() {
+    stopAutoplay();
+    autoplayTimer = setInterval(nextSlide, AUTOPLAY_INTERVAL);
+  }
+
+  function stopAutoplay() {
+    if (autoplayTimer) {
+      clearInterval(autoplayTimer);
+      autoplayTimer = null;
+    }
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      prevSlide();
+      startAutoplay();
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      nextSlide();
+      startAutoplay();
+    });
+  }
+
+  dots.forEach(dot => {
+    dot.addEventListener('click', (e) => {
+      e.preventDefault();
+      const idx = parseInt(dot.dataset.index, 10);
+      if (!isNaN(idx)) {
+        goToSlide(idx);
+        startAutoplay();
+      }
+    });
+  });
+
+  // Pausar con hover para poder contemplar la imagen con calma
+  container.addEventListener('mouseenter', stopAutoplay);
+  container.addEventListener('mouseleave', startAutoplay);
+
+  // Soporte gestual táctil para móviles y tablets
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  container.addEventListener('touchstart', (e) => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  container.addEventListener('touchend', (e) => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 40) {
+      if (diff > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+      startAutoplay();
+    }
+  }, { passive: true });
+
+  // Arrancar rotación automática
+  startAutoplay();
 }
 
 // Función principal de montaje
@@ -641,8 +1051,11 @@ function renderApp() {
   const intro = IntroAnimation({
     onComplete: () => {
       setupScrollObserver();
-      setup3DButtons();
+      setup3DButtonsAndGlossy();
       setupMouseInteractions();
+      setupCalculator();
+      setupDistrictTabs();
+      setupHeroCarousel();
     }
   });
   document.body.prepend(intro);
@@ -653,16 +1066,21 @@ function renderApp() {
     seccionInicio,
     seccionQuienesSomos,
     seccionServicios,
+    seccionCalculadora,
     seccionPreguntas,
     seccionContacto,
-    footer
+    footer,
+    emergencyBtn
   );
 
   // Inicializar observadores y efectos interactivos
   setTimeout(() => {
     setupScrollObserver();
-    setup3DButtons();
+    setup3DButtonsAndGlossy();
     setupMouseInteractions();
+    setupCalculator();
+    setupDistrictTabs();
+    setupHeroCarousel();
   }, 100);
 
   // Interactividad del formulario de consulta judicial

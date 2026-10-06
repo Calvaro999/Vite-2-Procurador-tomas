@@ -14,30 +14,38 @@ export function Section({ id, contenido, className = '' }) {
   style.textContent = `
     .content-section {
       position: relative;
+      z-index: 2;
       padding: 5.5rem 1.5rem;
       scroll-margin-top: 80px;
       width: 100%;
       box-sizing: border-box;
+      background: rgba(248, 250, 252, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       transition: background-color 0.3s ease;
     }
 
     /* Variantes de sección para sobriedad institucional */
     .content-section.section-hero {
       padding: 7rem 1.5rem 5.5rem 1.5rem;
-      background: radial-gradient(circle at 75% 20%, #132238 0%, #060c18 100%);
+      background: radial-gradient(circle at 75% 20%, rgba(19, 34, 56, 0.94) 0%, rgba(6, 12, 24, 0.98) 100%);
       color: #f8fafc;
       overflow: hidden;
       border-bottom: 1px solid rgba(198, 146, 52, 0.25);
     }
 
     .content-section.section-alt {
-      background: #f1f5f9;
+      background: rgba(241, 245, 249, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border-top: 1px solid rgba(148, 163, 184, 0.25);
       border-bottom: 1px solid rgba(148, 163, 184, 0.25);
     }
 
     .content-section.section-dark {
-      background: #060c18;
+      background: rgba(6, 12, 24, 0.94);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       color: #f8fafc;
       border-top: 1px solid rgba(198, 146, 52, 0.2);
     }
